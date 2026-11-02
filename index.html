@@ -264,134 +264,105 @@
         </div>
       </div>
     </section>
-
-    <!-- PAGE 3: CROP INFO -->
+<!-- PAGE 3: CROP HEALTH & DISEASE LIBRARY -->
     <section id="page-crop" class="page-section">
-      <div class="max-w-6xl mx-auto space-y-6 py-4">
-        <div class="text-center max-w-2xl mx-auto">
-          <span class="px-3 py-1 text-xs font-bold text-brand-700 dark:text-brand-300 bg-brand-100 dark:bg-brand-900/50 rounded-full">INDIAN AGRICULTURE DIRECTORY</span>
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Crops Grown in India</h1>
-          <p class="text-slate-600 dark:text-slate-300 mt-1">Explore growing conditions, season classifications, soil requirements, and cultivation tips for major Indian crops.</p>
-          
-          <div class="mt-4">
-            <input id="cropSearchInput" type="text" placeholder="Search crops (e.g., Tea, Coffee, Rubber, Rice, Mustard)..." class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition shadow-sm">
-          </div>
+      <div class="max-w-5xl mx-auto py-8">
+        <div class="text-center mb-8">
+          <span class="px-3 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/50 rounded-full">AI DIAGNOSTICS & AGRONOMY</span>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Crop Health & Disease Directory</h1>
+          <p class="text-slate-600 dark:text-slate-300 mt-2">Scan your crop leaves instantly via camera or look up symptoms and treatments manually.</p>
+        </div>
 
-          <div id="cropCategoryFilters" class="flex flex-wrap items-center justify-center gap-2 mt-4">
-            <button class="crop-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-brand-600 text-white shadow" data-cat="all">All Crops</button>
-            <button class="crop-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700" data-cat="cereals">Cereals & Grains</button>
-            <button class="crop-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700" data-cat="pulses">Pulses</button>
-            <button class="crop-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700" data-cat="oilseeds">Oilseeds</button>
-            <button class="crop-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700" data-cat="commercial">Commercial</button>
-            <button class="crop-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700" data-cat="horticulture">Horticulture</button>
+        <!-- 1. YOUR EXISTING CAMERA SCANNER CARD (Keep your upload buttons & preview here) -->
+        <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-700 mb-10 text-center">
+          <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Instant AI Leaf Scanner</h2>
+          <!-- Upload/Camera interface elements you already built go here -->
+          <div class="flex justify-center gap-4">
+            <input type="file" id="leafInput" accept="image/*" class="hidden">
+            <button onclick="document.getElementById('leafInput').click()" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition shadow-md">
+              📸 Take Photo / Upload Leaf
+            </button>
           </div>
         </div>
 
-        <div id="cropGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          <!-- CEREALS -->
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="cereals" data-keywords="rice paddy chawal kharif monsoon warm humid">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🌾</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Kharif • Cereal</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Rice (Paddy)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Hot & Humid (20°C–37°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Clayey loams retaining standing water.</p>
-          </div>
-
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="cereals" data-keywords="wheat gehun rabi winter cool loam">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🌾</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300">Rabi • Cereal</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Wheat (Gehun)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Cool & Moist Winter (10°C–15°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Well-drained fertile loams.</p>
-          </div>
-          
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="cereals" data-keywords="maize makka corn kharif cereal warm">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🌽</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Kharif • Cereal</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Maize (Makka)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Warm Climate (21°C–27°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Old alluvial soil with good drainage.</p>
-          </div>
-
-          <!-- PULSES -->
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="pulses" data-keywords="gram chana chickpea rabi legume protein">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🌱</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-orange-100 dark:bg-orange-950 text-orange-700 dark:text-orange-300">Rabi • Pulse</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Gram (Chana)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Cool Climate (20°C–25°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Light loamy or heavy clay soils.</p>
-          </div>
-          
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="pulses" data-keywords="pigeon pea tur arhar legume protein kharif">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🍲</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-orange-100 dark:bg-orange-950 text-orange-700 dark:text-orange-300">Kharif • Pulse</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Pigeon Pea (Tur)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Warm & Moist (26°C–30°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Well-drained loamy soils.</p>
-          </div>
-
-          <!-- OILSEEDS -->
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="oilseeds" data-keywords="groundnut mungfali peanut kharif oil sandy">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🥜</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-yellow-100 dark:bg-yellow-950 text-yellow-700 dark:text-yellow-300">Kharif • Oilseed</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Groundnut (Mungfali)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Warm Climate (20°C–30°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Sandy loams and well-drained soils.</p>
-          </div>
-
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="oilseeds" data-keywords="mustard sarson rabi oil yellow">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🌼</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-yellow-100 dark:bg-yellow-950 text-yellow-700 dark:text-yellow-300">Rabi • Oilseed</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Mustard (Sarson)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Cool Climate (10°C–25°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Light loamy soils to heavy clays.</p>
-          </div>
-
-          <!-- COMMERCIAL -->
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="commercial" data-keywords="sugarcane ganna perennial tropical humid cash">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🎋</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-cyan-100 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300">Commercial</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Sugarcane (Ganna)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Hot & Humid (10–14 Months)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Deep fertile alluvial loams.</p>
-          </div>
-
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="commercial" data-keywords="cotton kapas kharif regur black soil cash">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">☁️</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-cyan-100 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300">Kharif • Commercial</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Cotton (Kapas)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Warm (210 Frost-Free Days)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Deep black cotton soil (Regur).</p>
-          </div>
-          
-          <!-- HORTICULTURE -->
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="horticulture" data-keywords="potato aloo tuber rabi vegetable">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🥔</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-pink-100 dark:bg-pink-950 text-pink-700 dark:text-pink-300">Horticulture</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Potato (Aloo)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Cool Temperate (15°C–20°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Loose, well-aerated loamy soils.</p>
-          </div>
+        <!-- 2. SEARCH BAR FOR THE REFERENCE LIBRARY -->
+        <div class="mb-6 max-w-md mx-auto">
+          <input type="text" id="cropSearchInput" onkeyup="filterCropTable()" placeholder="🔍 Search library for crops or diseases (e.g., Rice, Blight)..." class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 outline-none transition shadow-sm">
+        </div>
+   <!-- 3. COMPREHENSIVE DISEASE REFERENCE TABLE -->
+        <div class="overflow-x-auto bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
+          <table id="cropTable" class="w-full text-left border-collapse">
+            <thead>
+              <tr class="bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-700">
+                <th class="p-4 font-bold text-slate-900 dark:text-white">Crop Name</th>
+                <th class="p-4 font-bold text-slate-900 dark:text-white">Common Disease / Pest</th>
+                <th class="p-4 font-bold text-slate-900 dark:text-white">Key Symptoms</th>
+                <th class="p-4 font-bold text-slate-900 dark:text-white">Recommended Treatment</th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-slate-100 dark:divide-slate-700/60">
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
+                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Rice (Paddy)</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Rice Blast</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Spindle-shaped spots on leaves with gray centers</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Tricyclazole 75% WP @ 0.6g/L</td>
+              </tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
+                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Rice (Paddy)</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Bacterial Leaf Blight</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Water-soaked stripes turning yellow and white</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Copper Hydroxide 77% WP spray</td>
+              </tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
+                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Wheat</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Yellow Stripe Rust</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Yellow pustules forming linear stripes on leaves</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Propiconazole 25% EC @ 1 ml/L</td>
+              </tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
+                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Potato</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Late Blight</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Dark brown/black water-soaked lesions on leaves</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Mancozeb 75% WP @ 2.5g/L</td>
+              </tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
+                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Tomato</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Leaf Curl Virus</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Upward curling of leaves, stunted growth</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Imidacloprid 17.8% SL (vector control)</td>
+              </tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
+                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Cotton</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Bacterial Blight</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Angular water-soaked spots on leaves and bolls</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Copper Oxychloride + Streptocycline</td>
+              </tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
+                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Sugarcane</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Red Rot</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Reddening of internal stalk tissues with alcoholic smell</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Carbendazim seed set soak (0.1%)</td>
+              </tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
+                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Soybean</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Soybean Rust</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Tan to dark brown lesions on lower leaf surfaces</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Hexaconazole 5% EC spray</td>
+              </tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
+                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Banana</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Panama Wilt</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Yellowing of older leaves, splitting of pseudostem</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Carbendazim soil drenching (0.2%)</td>
+              </tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
+                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Mango</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Anthracnose</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Dark sunken spots on leaves, blossoms, and fruits</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Carbendazim 0.1% or Mancozeb spray</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -471,17 +442,17 @@
     </section>
 
     <!-- PAGE 6: MARKET PRICES -->
-  <section id="page-market" class="page-section">
+ <section id="page-market" class="page-section">
       <div class="max-w-5xl mx-auto py-8">
         <div class="text-center mb-8">
-          <span class="px-3 py-1 text-xs font-bold text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-900/50 rounded-full">ECONOMICS</span>
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Real-Time Market Pricing</h1>
-          <p class="text-slate-600 dark:text-slate-300 mt-2">Current official MSP and wholesale Mandi rates for major Indian crops (₹/Quintal).</p>
+          <span class="px-3 py-1 text-xs font-bold text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-900/50 rounded-full">ECONOMICS & COMMODITIES</span>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">All-India Market Pricing Directory</h1>
+          <p class="text-slate-600 dark:text-slate-300 mt-2">Live wholesale rates and MSP across cereals, pulses, oilseeds, vegetables, and fruits (₹/Quintal).</p>
         </div>
 
-        <!-- NEW: Search Bar Filter -->
+        <!-- Search Bar Filter -->
         <div class="mb-6 max-w-md mx-auto">
-          <input type="text" id="marketSearchInput" onkeyup="filterMarketTable()" placeholder="🔍 Search crops or states (e.g., Wheat, Punjab)..." class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-purple-500 outline-none transition shadow-sm">
+          <input type="text" id="marketSearchInput" onkeyup="filterMarketTable()" placeholder="🔍 Search any crop or state instantly..." class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-purple-500 outline-none transition shadow-sm">
         </div>
 
         <div class="overflow-x-auto bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
@@ -496,83 +467,32 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-slate-100 dark:divide-slate-700/60">
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Paddy (Common)</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Punjab, Haryana</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,441</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,461</td>
-                <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +0.8%</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Wheat (Gehu)</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">UP, Punjab, MP</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,585</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,610</td>
-                <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +1.2%</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Maize (Makka)</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Karnataka, AP</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,410</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,650</td>
-                <td class="p-4 text-slate-400 font-bold">- 0.0%</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Bajra (Pearl Millet)</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Rajasthan, Haryana</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,900</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">3,320</td>
-                <td class="p-4 text-red-500 font-bold">▼ -0.3%</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Gram (Chana)</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">MP, Maharashtra</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">5,875</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">6,150</td>
-                <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +2.1%</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Tur (Pigeon Pea)</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Maharashtra, Karnataka</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">8,450</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">8,800</td>
-                <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +1.5%</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Groundnut</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Gujarat, AP</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">7,517</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">11,100</td>
-                <td class="p-4 text-red-500 font-bold">▼ -1.0%</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Mustard Seed (Sarson)</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Rajasthan, MP</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">6,200</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">6,613</td>
-                <td class="p-4 text-slate-400 font-bold">- 0.0%</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Cotton (Medium Staple)</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Gujarat, Punjab</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">8,267</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">8,600</td>
-                <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +0.5%</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Potato</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">UP, West Bengal</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,200</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,750</td>
-                <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +3.2%</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Onion</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Maharashtra (Lasalgaon)</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,400</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">3,850</td>
-                <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +4.5%</td>
-              </tr>
+              <!-- Cereals -->
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Paddy (Common)</td><td class="p-4 text-slate-600 dark:text-slate-400">Punjab, Haryana</td><td class="p-4 text-slate-600 dark:text-slate-300">2,441</td><td class="p-4 text-slate-600 dark:text-slate-300">2,461</td><td class="p-4 text-emerald-600 font-bold">▲ +0.8%</td></tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Wheat (Gehu)</td><td class="p-4 text-slate-600 dark:text-slate-400">UP, Punjab, MP</td><td class="p-4 text-slate-600 dark:text-slate-300">2,585</td><td class="p-4 text-slate-600 dark:text-slate-300">2,610</td><td class="p-4 text-emerald-600 font-bold">▲ +1.2%</td></tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Maize (Makka)</td><td class="p-4 text-slate-600 dark:text-slate-400">Karnataka, AP</td><td class="p-4 text-slate-600 dark:text-slate-300">2,410</td><td class="p-4 text-slate-600 dark:text-slate-300">2,650</td><td class="p-4 text-slate-400 font-bold">- 0.0%</td></tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Bajra (Pearl Millet)</td><td class="p-4 text-slate-600 dark:text-slate-400">Rajasthan, Haryana</td><td class="p-4 text-slate-600 dark:text-slate-300">2,900</td><td class="p-4 text-slate-600 dark:text-slate-300">3,320</td><td class="p-4 text-red-500 font-bold">▼ -0.3%</td></tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Jowar (Sorghum)</td><td class="p-4 text-slate-600 dark:text-slate-400">Maharashtra, Karnataka</td><td class="p-4 text-slate-600 dark:text-slate-300">3,371</td><td class="p-4 text-slate-600 dark:text-slate-300">3,650</td><td class="p-4 text-emerald-600 font-bold">▲ +0.4%</td></tr>
+              
+              <!-- Pulses -->
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Gram (Chana)</td><td class="p-4 text-slate-600 dark:text-slate-400">MP, Maharashtra</td><td class="p-4 text-slate-600 dark:text-slate-300">5,875</td><td class="p-4 text-slate-600 dark:text-slate-300">6,150</td><td class="p-4 text-emerald-600 font-bold">▲ +2.1%</td></tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Tur (Pigeon Pea)</td><td class="p-4 text-slate-600 dark:text-slate-400">Maharashtra, Karnataka</td><td class="p-4 text-slate-600 dark:text-slate-300">8,450</td><td class="p-4 text-slate-600 dark:text-slate-300">8,800</td><td class="p-4 text-emerald-600 font-bold">▲ +1.5%</td></tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Moong (Green Gram)</td><td class="p-4 text-slate-600 dark:text-slate-400">Rajasthan, MP</td><td class="p-4 text-slate-600 dark:text-slate-300">8,682</td><td class="p-4 text-slate-600 dark:text-slate-300">9,100</td><td class="p-4 text-emerald-600 font-bold">▲ +0.9%</td></tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Urad (Black Gram)</td><td class="p-4 text-slate-600 dark:text-slate-400">AP, Madhya Pradesh</td><td class="p-4 text-slate-600 dark:text-slate-300">7,400</td><td class="p-4 text-slate-600 dark:text-slate-300">7,850</td><td class="p-4 text-red-500 font-bold">▼ -0.5%</td></tr>
+
+              <!-- Oilseeds & Cash Crops -->
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Soybean (Yellow)</td><td class="p-4 text-slate-600 dark:text-slate-400">MP, Maharashtra</td><td class="p-4 text-slate-600 dark:text-slate-300">4,892</td><td class="p-4 text-slate-600 dark:text-slate-300">5,150</td><td class="p-4 text-emerald-600 font-bold">▲ +1.1%</td></tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Groundnut</td><td class="p-4 text-slate-600 dark:text-slate-400">Gujarat, AP</td><td class="p-4 text-slate-600 dark:text-slate-300">7,517</td><td class="p-4 text-slate-600 dark:text-slate-300">11,100</td><td class="p-4 text-red-500 font-bold">▼ -1.0%</td></tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Mustard Seed (Sarson)</td><td class="p-4 text-slate-600 dark:text-slate-400">Rajasthan, MP</td><td class="p-4 text-slate-600 dark:text-slate-300">6,200</td><td class="p-4 text-slate-600 dark:text-slate-300">6,613</td><td class="p-4 text-slate-400 font-bold">- 0.0%</td></tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Cotton (Medium Staple)</td><td class="p-4 text-slate-600 dark:text-slate-400">Gujarat, Punjab</td><td class="p-4 text-slate-600 dark:text-slate-300">8,267</td><td class="p-4 text-slate-600 dark:text-slate-300">8,600</td><td class="p-4 text-emerald-600 font-bold">▲ +0.5%</td></tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Sugarcane</td><td class="p-4 text-slate-600 dark:text-slate-400">UP, Maharashtra</td><td class="p-4 text-slate-600 dark:text-slate-300">3,400</td><td class="p-4 text-slate-600 dark:text-slate-300">3,650</td><td class="p-4 text-emerald-600 font-bold">▲ +2.0%</td></tr>
+
+              <!-- Vegetables & Fruits -->
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Potato</td><td class="p-4 text-slate-600 dark:text-slate-400">UP, West Bengal</td><td class="p-4 text-slate-600 dark:text-slate-300">2,200</td><td class="p-4 text-slate-600 dark:text-slate-300">2,750</td><td class="p-4 text-emerald-600 font-bold">▲ +3.2%</td></tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Onion</td><td class="p-4 text-slate-600 dark:text-slate-400">Maharashtra (Lasalgaon)</td><td class="p-4 text-slate-600 dark:text-slate-300">2,400</td><td class="p-4 text-slate-600 dark:text-slate-300">3,850</td><td class="p-4 text-emerald-600 font-bold">▲ +4.5%</td></tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Tomato</td><td class="p-4 text-slate-600 dark:text-slate-400">Karnataka, AP</td><td class="p-4 text-slate-600 dark:text-slate-300">1,800</td><td class="p-4 text-slate-600 dark:text-slate-300">3,200</td><td class="p-4 text-red-500 font-bold">▼ -2.4%</td></tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Banana</td><td class="p-4 text-slate-600 dark:text-slate-400">Tamil Nadu, Maharashtra</td><td class="p-4 text-slate-600 dark:text-slate-300">2,100</td><td class="p-4 text-slate-600 dark:text-slate-300">2,800</td><td class="p-4 text-emerald-600 font-bold">▲ +1.0%</td></tr>
+              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Mango (Alphonso / Totapuri)</td><td class="p-4 text-slate-600 dark:text-slate-400">Maharashtra, UP</td><td class="p-4 text-slate-600 dark:text-slate-300">5,000</td><td class="p-4 text-slate-600 dark:text-slate-300">12,500</td><td class="p-4 text-emerald-600 font-bold">▲ +5.1%</td></tr>
             </tbody>
           </table>
         </div>
