@@ -471,109 +471,106 @@
     </section>
 
     <!-- PAGE 6: MARKET PRICES -->
-    <section id="page-market" class="page-section">
+  <section id="page-market" class="page-section">
       <div class="max-w-5xl mx-auto py-8">
         <div class="text-center mb-8">
           <span class="px-3 py-1 text-xs font-bold text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-900/50 rounded-full">ECONOMICS</span>
           <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Real-Time Market Pricing</h1>
-          <p class="text-slate-600 dark:text-slate-300 mt-2">Current estimated base Mandi rates for major crops in India (₹/Quintal).</p>
+          <p class="text-slate-600 dark:text-slate-300 mt-2">Current official MSP and wholesale Mandi rates for major Indian crops (₹/Quintal).</p>
+        </div>
+
+        <!-- NEW: Search Bar Filter -->
+        <div class="mb-6 max-w-md mx-auto">
+          <input type="text" id="marketSearchInput" onkeyup="filterMarketTable()" placeholder="🔍 Search crops or states (e.g., Wheat, Punjab)..." class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-purple-500 outline-none transition shadow-sm">
         </div>
 
         <div class="overflow-x-auto bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-          <table class="w-full text-left border-collapse">
+          <table id="marketTable" class="w-full text-left border-collapse">
             <thead>
               <tr class="bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-700">
                 <th class="p-4 font-bold text-slate-900 dark:text-white">Commodity</th>
-                <th class="p-4 font-bold text-slate-900 dark:text-white">Major State</th>
+                <th class="p-4 font-bold text-slate-900 dark:text-white">Major State/Mandi</th>
                 <th class="p-4 font-bold text-slate-900 dark:text-white">Min Price (₹/Qtl)</th>
                 <th class="p-4 font-bold text-slate-900 dark:text-white">Max Price (₹/Qtl)</th>
                 <th class="p-4 font-bold text-slate-900 dark:text-white">Trend</th>
               </tr>
             </thead>
             <tbody class="divide-y divide-slate-100 dark:divide-slate-700/60">
-              <!-- Expanded Crop List with Realistic Ranges -->
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
                 <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Paddy (Common)</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Punjab, AP</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,183</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,450</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Punjab, Haryana</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">2,441</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">2,461</td>
                 <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +0.8%</td>
               </tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Wheat</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">UP, Punjab</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,275</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,550</td>
+                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Wheat (Gehu)</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">UP, Punjab, MP</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">2,585</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">2,610</td>
                 <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +1.2%</td>
               </tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Maize</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Karnataka</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,090</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,300</td>
+                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Maize (Makka)</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Karnataka, AP</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">2,410</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">2,650</td>
                 <td class="p-4 text-slate-400 font-bold">- 0.0%</td>
               </tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Bajra (Millet)</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Rajasthan</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,500</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,650</td>
+                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Bajra (Pearl Millet)</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Rajasthan, Haryana</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">2,900</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">3,320</td>
                 <td class="p-4 text-red-500 font-bold">▼ -0.3%</td>
               </tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
                 <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Gram (Chana)</td>
                 <td class="p-4 text-slate-600 dark:text-slate-400">MP, Maharashtra</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">5,440</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">5,700</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">5,875</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">6,150</td>
                 <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +2.1%</td>
               </tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
                 <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Tur (Pigeon Pea)</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Maharashtra</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">7,000</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">7,550</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Maharashtra, Karnataka</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">8,450</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">8,800</td>
                 <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +1.5%</td>
               </tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
                 <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Groundnut</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Gujarat</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">6,377</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">6,800</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Gujarat, AP</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">7,517</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">11,100</td>
                 <td class="p-4 text-red-500 font-bold">▼ -1.0%</td>
               </tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Mustard Seed</td>
+                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Mustard Seed (Sarson)</td>
                 <td class="p-4 text-slate-600 dark:text-slate-400">Rajasthan, MP</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">5,450</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">5,800</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">6,200</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">6,613</td>
                 <td class="p-4 text-slate-400 font-bold">- 0.0%</td>
               </tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
                 <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Cotton (Medium Staple)</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Gujarat, MH</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">6,620</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">7,200</td>
-                <td class="p-4 text-red-500 font-bold">▼ -0.5%</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Sugarcane</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">UP, Maharashtra</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">315</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">380</td>
-                <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +0.2%</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Gujarat, Punjab</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">8,267</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">8,600</td>
+                <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +0.5%</td>
               </tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
                 <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Potato</td>
                 <td class="p-4 text-slate-600 dark:text-slate-400">UP, West Bengal</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">1,200</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">1,600</td>
-                <td class="p-4 text-red-500 font-bold">▼ -2.5%</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">2,200</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">2,750</td>
+                <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +3.2%</td>
               </tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
                 <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Onion</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Maharashtra</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,000</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">3,800</td>
+                <td class="p-4 text-slate-600 dark:text-slate-400">Maharashtra (Lasalgaon)</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">2,400</td>
+                <td class="p-4 text-slate-600 dark:text-slate-300">3,850</td>
                 <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +4.5%</td>
               </tr>
             </tbody>
@@ -743,7 +740,29 @@
           analyzeCameraBtn.disabled = false;
         }
       });
+     // Filter Market Table based on user search input
+    function filterMarketTable() {
+      const input = document.getElementById('marketSearchInput');
+      const filter = input.value.toLowerCase();
+      const table = document.getElementById('marketTable');
+      const trs = table.getElementsByTagName('tr');
 
+      for (let i = 1; i < trs.length; i++) {
+        let tdCommodity = trs[i].getElementsByTagName('td')[0];
+        let tdState = trs[i].getElementsByTagName('td')[1];
+        if (tdCommodity || tdState) {
+          let textValueCommodity = tdCommodity ? tdCommodity.textContent || tdCommodity.innerText : '';
+          let textValueState = tdState ? tdState.textContent || tdState.innerText : '';
+          
+          if (textValueCommodity.toLowerCase().indexOf(filter) > -1 || textValueState.toLowerCase().indexOf(filter) > -1) {
+            trs[i].style.display = "";
+          } else {
+            trs[i].style.display = "none";
+          }
+        }
+      }
+    }
+      
       // 5. OPEN-METEO WEATHER API CONNECTION (WITH CITY SEARCH)
       
       // Function to fetch weather by lat/lon
