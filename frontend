@@ -511,18 +511,18 @@
           <span class="px-3 py-1 text-xs font-bold text-sky-700 dark:text-sky-300 bg-sky-100 dark:bg-sky-900/50 rounded-full">LOCAL CLIMATE</span>
           <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Farming Weather Forecast</h1>
         </div>
-
-        <div class="bg-gradient-to-br from-sky-500 to-blue-600 rounded-3xl p-6 sm:p-8 text-white shadow-lg">
+<div class="bg-gradient-to-br from-sky-500 to-blue-600 rounded-3xl p-6 sm:p-8 text-white shadow-lg">
           <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
-              <h2 class="text-2xl font-bold">Current Conditions</h2>
-              <p class="text-sky-100 mt-1">Bengaluru, Karnataka</p>
-              <div class="text-6xl font-extrabold mt-4">28°C</div>
-              <p class="text-lg font-medium mt-2">Partly Cloudy • Humidity: 65%</p>
+              <h2 id="weatherCity" class="text-2xl font-bold">Locating...</h2>
+              <p class="text-sky-100 mt-1">Fetching live API data</p>
+              <div id="weatherTemp" class="text-6xl font-extrabold mt-4">--°C</div>
+              <p id="weatherDetails" class="text-lg font-medium mt-2">Wind: -- km/h • Humidity: --%</p>
             </div>
-            <div class="text-8xl">⛅</div>
+            <div id="weatherIcon" class="text-8xl">⛅</div>
           </div>
         </div>
+       
       </div>
     </section>
 
@@ -747,6 +747,49 @@
           analyzeCameraBtn.disabled = false;
         }
       });
+// --- OPEN-METEO WEATHER API CONNECTION ---
+      
+      // Function to fetch API data
+      async function getWeatherData(lat, lon) {
+        try {
+          // 1. The API URL we are connecting to
+          const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m&timezone=auto`;
+          
+          // 2. Fetch the data from the API
+          const response = await fetch(apiUrl);
+          
+          // 3. Unpack the JSON data sent back by the API
+          const data = await response.json();
+          const current = data.current;
+
+          // 4. Update the Frontend HTML with the API data
+          document.getElementById('weatherTemp').textContent = `${current.temperature_2m}°C`;
+          document.getElementById('weatherDetails').textContent = `Wind: ${current.wind_speed_10m} km/h • Humidity: ${current.relative_humidity_2m}%`;
+          document.getElementById('weatherCity').textContent = "Current Location";
+          
+          // Simple weather icon logic based on API weather_code
+          const icon = current.weather_code > 50 ? '🌧️' : (current.is_day ? '☀️' : '🌙');
+          document.getElementById('weatherIcon').textContent = icon;
+
+        } catch (error) {
+          console.error("API Connection Error:", error);
+          document.getElementById('weatherCity').textContent = "Weather Unavailable";
+        }
+      }
+
+      // Get user's device location, then call the API
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            getWeatherData(position.coords.latitude, position.coords.longitude);
+          },
+          (error) => {
+            // Default to New Delhi coordinates if user denies location
+            getWeatherData(28.6139, 77.2090); 
+            document.getElementById('weatherCity').textContent = "New Delhi (Default)";
+          }
+        );
+      }
     });
   </script>
 </body>
