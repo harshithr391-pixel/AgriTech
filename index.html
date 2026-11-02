@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en" class="light">
-<script src="https://cdn.tailwindcss.com"></script>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
@@ -10,8 +9,8 @@
   <!-- iOS PWA Meta Tags -->
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <meta name="apple-mobile-web-app-title" content="KrishiDrishti">
-  <link rel="apple-touch-icon" href="https://placehold.co/192x192/16a34a/ffffff?text=🌱+KrishiDrishti">
+  <meta name="apple-mobile-web-app-title" content="AgriTech">
+  <link rel="apple-touch-icon" href="https://placehold.co/192x192/16a34a/ffffff?text=🌱+AgriTech">
 
   <title>AgriTech — Smart Farming PWA</title>
 
@@ -80,7 +79,7 @@
 
     body {
       padding-top: var(--sat);
-      padding-bottom: calc(var(--sab) + 4rem); /* Space for mobile bottom bar */
+      padding-bottom: calc(var(--sab) + 4rem);
       font-family: 'Inter', sans-serif;
       touch-action: manipulation;
       -webkit-tap-highlight-color: transparent;
@@ -122,7 +121,7 @@
         <!-- Logo -->
         <a href="#home" class="nav-link flex items-center gap-2 text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white" data-target="home">
           <span class="text-2xl sm:text-3xl">🌱</span> 
-          <span>KrishiDrishti</span>
+          <span>AgriTech</span>
           <span class="text-[10px] font-bold tracking-widest text-brand-600 bg-brand-100 dark:bg-brand-900/50 dark:text-brand-300 px-2 py-0.5 rounded-full uppercase">PWA</span>
         </a>
 
@@ -177,7 +176,7 @@
   <div id="pwaBanner" class="hidden bg-slate-900 text-white px-4 py-3 border-b border-slate-800 flex items-center justify-between text-xs sm:text-sm">
     <div class="flex items-center gap-2">
       <span class="text-xl">📱</span>
-      <span>Install KrishiDrishti PWA for faster offline access on iOS & Android</span>
+      <span>Install AgriTech PWA for faster offline access</span>
     </div>
     <div class="flex items-center gap-2">
       <button id="pwaInstallBtn" class="bg-brand-600 hover:bg-brand-500 px-3 py-1.5 rounded-lg font-bold text-white transition">Install</button>
@@ -198,7 +197,7 @@
           Smart Farming,<br><em class="not-italic text-brand-600 dark:text-brand-500 underline decoration-brand-300 decoration-4">Better Future.</em>
         </h1>
         <p class="text-base sm:text-xl text-slate-600 dark:text-slate-300 leading-relaxed mb-8">
-          KrishiDrishti empowers farmers to explore crop guidance, diagnose leaf health, check local weather, and track market prices — all in one accessible mobile PWA.
+          AgriTech empowers farmers to explore crop guidance, diagnose leaf health, check local weather, and track market prices — all in one accessible mobile PWA.
         </p>
         <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
           <button class="w-full sm:w-auto px-6 py-3.5 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-lg hover:shadow-xl transition nav-link" data-target="crop">
@@ -221,13 +220,13 @@
         <a href="#disease" data-target="disease" class="nav-link block p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/60 shadow-sm hover:shadow-md transition group">
           <div class="w-12 h-12 rounded-xl bg-amber-100 dark:bg-amber-900/50 text-amber-600 dark:text-amber-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">🔬</div>
           <h3 class="text-lg font-bold text-slate-900 dark:text-white">Disease Detection</h3>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Upload leaf photos for simulated diagnosis.</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Upload leaf photos for AI diagnosis.</p>
         </a>
 
         <a href="#weather" data-target="weather" class="nav-link block p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/60 shadow-sm hover:shadow-md transition group">
           <div class="w-12 h-12 rounded-xl bg-sky-100 dark:bg-sky-900/50 text-sky-600 dark:text-sky-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">🌤️</div>
           <h3 class="text-lg font-bold text-slate-900 dark:text-white">Weather Forecast</h3>
-          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">City-based forecasts via Open-Meteo.</p>
+          <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Searchable city-based forecasts.</p>
         </a>
 
         <a href="#market" data-target="market" class="nav-link block p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/60 shadow-sm hover:shadow-md transition group">
@@ -242,557 +241,4 @@
     <section id="page-about" class="page-section">
       <div class="max-w-4xl mx-auto space-y-8 py-4">
         <div class="text-center">
-          <span class="px-3 py-1 text-xs font-bold text-brand-700 dark:text-brand-300 bg-brand-100 dark:bg-brand-900/50 rounded-full">ABOUT US</span>
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Helping farmers grow a better future.</h1>
-          <p class="text-slate-600 dark:text-slate-300 mt-2">KrishiDrishti combines accessible UI design with practical agricultural information.</p>
-        </div>
-
-        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100 dark:border-slate-700">
-          <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-3 flex items-center gap-2">🎯 Our Mission</h2>
-          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
-            Our mission is to make farming knowledge simplified and responsive on any device. From low-cost mobile smartphones to high-resolution desktop displays, KrishiDrishti delivers crop care tips, diagnostic demos, and weather updates.
-          </p>
-        </div>
-
-        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 shadow-sm border border-slate-100 dark:border-slate-700">
-          <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4 flex items-center gap-2">📋 Core Objectives</h2>
-          <ul class="space-y-3 text-slate-600 dark:text-slate-300">
-            <li class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900/60 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xs font-bold">✓</span> Progressive Web App with mobile Touch & Install support.</li>
-            <li class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900/60 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xs font-bold">✓</span> Searchable crop care and climate recommendations.</li>
-            <li class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900/60 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xs font-bold">✓</span> Plant leaf health image upload and simulated diagnostics.</li>
-            <li class="flex items-center gap-3"><span class="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-900/60 text-brand-600 dark:text-brand-400 flex items-center justify-center text-xs font-bold">✓</span> Live weather lookup utilizing Open-Meteo REST APIs.</li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGE 3: CROP INFO -->
-    <section id="page-crop" class="page-section">
-      <div class="max-w-6xl mx-auto space-y-6 py-4">
-        <div class="text-center max-w-2xl mx-auto">
-          <span class="px-3 py-1 text-xs font-bold text-brand-700 dark:text-brand-300 bg-brand-100 dark:bg-brand-900/50 rounded-full">INDIAN AGRICULTURE DIRECTORY</span>
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Crops Grown in India</h1>
-          <p class="text-slate-600 dark:text-slate-300 mt-1">Explore growing conditions, season classifications, soil requirements, and cultivation tips for 28+ major Indian crops including plantation & commercial crops.</p>
-          
-          <!-- Search Bar -->
-          <div class="mt-4">
-            <input id="cropSearchInput" type="text" placeholder="Search crops (e.g., Tea, Coffee, Rubber, Rice, Mustard, Cotton)..." class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-brand-500 outline-none transition shadow-sm">
-          </div>
-
-          <!-- Category Filter Pills -->
-          <div id="cropCategoryFilters" class="flex flex-wrap items-center justify-center gap-2 mt-4">
-            <button class="crop-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-brand-600 text-white shadow" data-cat="all">All Crops (28+)</button>
-            <button class="crop-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700" data-cat="cereals">Cereals & Grains</button>
-            <button class="crop-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700" data-cat="pulses">Pulses & Legumes</button>
-            <button class="crop-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700" data-cat="oilseeds">Oilseeds</button>
-            <button class="crop-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700" data-cat="commercial">Commercial & Plantation</button>
-            <button class="crop-cat-btn px-3.5 py-1.5 rounded-full text-xs font-bold transition bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-700" data-cat="horticulture">Vegetables & Tubers</button>
-          </div>
-        </div>
-
-        <!-- Major Indian Crops Cards Grid -->
-        <div id="cropGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- CEREALS & GRAINS -->
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="cereals" data-keywords="rice paddy chawal kharif monsoon warm humid">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🌾</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Kharif • Cereal</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Rice (Paddy)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Hot & Humid (20°C–37°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Clayey loams retaining standing water.</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1"><strong>Tip:</strong> Maintain 2–5 cm standing water depth in early transplanting.</p>
-          </div>
-
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="cereals" data-keywords="wheat gehun rabi winter cool loam">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🌾</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-amber-100 dark:bg-amber-950 text-amber-700 dark:text-amber-300">Rabi • Cereal</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Wheat (Gehun)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Cool & Moist Winter (10°C–15°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Well-drained fertile loams and clayey loams.</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1"><strong>Tip:</strong> Requires bright sunshine at the time of ripening and a frost-free period.</p>
-          </div>
-
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="cereals" data-keywords="maize makka corn kharif cereal warm">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🌽</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Kharif • Cereal</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Maize (Makka)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Warm Climate (21°C–27°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Old alluvial soil with good drainage.</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1"><strong>Tip:</strong> Highly sensitive to waterlogging; ensure proper field drainage.</p>
-          </div>
-
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="cereals" data-keywords="millets jowar bajra ragi dry arid cereal">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🌾</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300">Dryland • Cereal</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Millets (Jowar/Bajra)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Hot & Dry (25°C–35°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Sandy, shallow, or black soils with low moisture.</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1"><strong>Tip:</strong> Drought resistant; excellent for arid regions with poor rainfall.</p>
-          </div>
-
-          <!-- PULSES & LEGUMES -->
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="pulses" data-keywords="gram chana chickpea rabi legume protein">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🌱</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-orange-100 dark:bg-orange-950 text-orange-700 dark:text-orange-300">Rabi • Pulse</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Gram (Chana)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Cool Climate (20°C–25°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Light loamy or heavy clay soils.</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1"><strong>Tip:</strong> Nipping (plucking top shoots) encourages branching and higher yield.</p>
-          </div>
-
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="pulses" data-keywords="pigeon pea tur arhar legume protein kharif">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🍲</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-orange-100 dark:bg-orange-950 text-orange-700 dark:text-orange-300">Kharif • Pulse</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Pigeon Pea (Tur)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Warm & Moist (26°C–30°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Well-drained loamy soils.</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1"><strong>Tip:</strong> Often grown as a mixed crop with cereals to fix soil nitrogen.</p>
-          </div>
-
-          <!-- OILSEEDS -->
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="oilseeds" data-keywords="groundnut mungfali peanut kharif oil sandy">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🥜</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-yellow-100 dark:bg-yellow-950 text-yellow-700 dark:text-yellow-300">Kharif • Oilseed</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Groundnut (Mungfali)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Warm Climate (20°C–30°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Sandy loams and well-drained soils.</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1"><strong>Tip:</strong> Requires a dry period during ripening for easier harvesting.</p>
-          </div>
-
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="oilseeds" data-keywords="mustard sarson rabi oil yellow">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🌼</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-yellow-100 dark:bg-yellow-950 text-yellow-700 dark:text-yellow-300">Rabi • Oilseed</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Mustard (Sarson)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Cool Climate (10°C–25°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Light loamy soils to heavy clays.</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1"><strong>Tip:</strong> Susceptible to aphids; timely spraying of natural pesticides is crucial.</p>
-          </div>
-
-          <!-- COMMERCIAL & PLANTATION -->
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="commercial" data-keywords="tea chai plantation assam darjeeling hill slopes">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🍵</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-cyan-100 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300">Plantation • Commercial</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Tea (Chai)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Tropical & Subtropical (20°C–30°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Deep friable acidic soil (pH 4.5–5.5).</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1"><strong>Tip:</strong> Requires heavy rainfall evenly distributed without water stagnation.</p>
-          </div>
-
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="commercial" data-keywords="coffee kapi arabica robusta western ghats">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">☕</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-cyan-100 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300">Plantation • Commercial</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Coffee</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Hot & Humid Hill Slopes (15°C–28°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Deep, well-drained loamy soil.</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1"><strong>Tip:</strong> Grown under two-tier shade trees to protect bushes from direct intense sunlight.</p>
-          </div>
-
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="commercial" data-keywords="sugarcane ganna perennial tropical humid cash">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🎋</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-cyan-100 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300">Perennial • Commercial</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Sugarcane (Ganna)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Hot & Humid (10–14 Months)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Deep fertile alluvial loams.</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1"><strong>Tip:</strong> High irrigation need; practice trash mulching for moisture retention.</p>
-          </div>
-
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="commercial" data-keywords="cotton kapas kharif regur black soil cash">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">☁️</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-cyan-100 dark:bg-cyan-950 text-cyan-700 dark:text-cyan-300">Kharif • Commercial</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Cotton (Kapas)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Warm (210 Frost-Free Days)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Deep black cotton soil (Regur).</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1"><strong>Tip:</strong> Inspect regularly for pink bollworm infestations.</p>
-          </div>
-
-          <!-- HORTICULTURE (VEGETABLES & TUBERS) -->
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="horticulture" data-keywords="potato aloo tuber rabi vegetable">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🥔</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-pink-100 dark:bg-pink-950 text-pink-700 dark:text-pink-300">Tuber • Horticulture</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Potato (Aloo)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Cool Temperate (15°C–20°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Loose, well-aerated loamy and sandy soils.</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1"><strong>Tip:</strong> Earth up the base of the plant to prevent tubers from turning green from sunlight.</p>
-          </div>
-
-          <div class="crop-card bg-white dark:bg-slate-800 rounded-2xl p-6 border border-slate-100 dark:border-slate-700 shadow-sm transition hover:shadow-md" data-category="horticulture" data-keywords="onion pyaz bulb vegetable kharif rabi">
-            <div class="flex items-center justify-between mb-3">
-              <span class="text-4xl">🧅</span>
-              <span class="text-[10px] font-extrabold uppercase px-2.5 py-1 rounded-full bg-pink-100 dark:bg-pink-950 text-pink-700 dark:text-pink-300">Bulb • Horticulture</span>
-            </div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-white">Onion (Pyaz)</h3>
-            <p class="text-xs font-semibold text-brand-600 dark:text-brand-400 mt-1">Mild Cool to Warm (13°C–30°C)</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-2"><strong>Soil:</strong> Deep, friable loam and alluvial soils.</p>
-            <p class="text-sm text-slate-600 dark:text-slate-300 mt-1"><strong>Tip:</strong> Withhold irrigation a week before harvesting to improve storage life.</p>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGE 4: DISEASE DETECTION -->
- <!-- PAGE 4: DISEASE DETECTION -->
-    <section id="page-disease" class="page-section">
-      <div class="max-w-3xl mx-auto py-8">
-        <div class="text-center mb-8">
-          <span class="px-3 py-1 text-xs font-bold text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/50 rounded-full">AI DIAGNOSTICS</span>
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Leaf Disease Detection</h1>
-          <p class="text-slate-600 dark:text-slate-300 mt-2">Use your camera to scan an affected plant leaf for health analysis.</p>
-        </div>
-
-        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
-          
-          <!-- Camera Viewfinder -->
-          <div id="cameraContainer" class="relative w-full max-w-md mx-auto aspect-[3/4] sm:aspect-video bg-slate-900 rounded-xl overflow-hidden mb-6 flex items-center justify-center">
-            <!-- Video feed for live camera -->
-            <video id="cameraFeed" autoplay playsinline class="w-full h-full object-cover hidden"></video>
-            <!-- Image preview for captured photo -->
-            <img id="photoPreview" class="w-full h-full object-cover hidden" alt="Captured leaf">
-            
-            <!-- Default placeholder before camera starts -->
-            <div id="cameraPlaceholder" class="text-slate-400 flex flex-col items-center">
-              <span class="text-6xl mb-4">📷</span>
-              <p class="font-bold">Camera off</p>
-            </div>
-          </div>
-
-          <!-- Hidden canvas for capturing the image frame -->
-          <canvas id="captureCanvas" class="hidden"></canvas>
-
-          <!-- Controls -->
-          <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <button id="startCameraBtn" class="w-full sm:w-auto px-6 py-3 bg-slate-800 dark:bg-slate-700 text-white font-bold rounded-xl hover:bg-slate-700 transition">
-              Open Camera
-            </button>
-            <button id="takePhotoBtn" class="w-full sm:w-auto px-6 py-3 bg-brand-600 text-white font-bold rounded-xl shadow-lg hover:bg-brand-700 transition hidden">
-              Snap Photo
-            </button>
-            <button id="analyzeCameraBtn" class="w-full sm:w-auto px-8 py-3 bg-brand-600 text-white font-bold rounded-xl shadow-lg hover:bg-brand-700 transition hidden">
-              Analyze Crop Health
-            </button>
-            <button id="retakeBtn" class="w-full sm:w-auto px-6 py-3 bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white font-bold rounded-xl hover:bg-slate-300 transition hidden">
-              Retake
-            </button>
-          </div>
-          
-        </div>
-      </div>
-    </section>
-
-    <!-- PAGE 5: WEATHER -->
-    <section id="page-weather" class="page-section">
-      <div class="max-w-4xl mx-auto py-8">
-        <div class="text-center mb-8">
-          <span class="px-3 py-1 text-xs font-bold text-sky-700 dark:text-sky-300 bg-sky-100 dark:bg-sky-900/50 rounded-full">LOCAL CLIMATE</span>
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Farming Weather Forecast</h1>
-        </div>
-<div class="bg-gradient-to-br from-sky-500 to-blue-600 rounded-3xl p-6 sm:p-8 text-white shadow-lg">
-          <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
-            <div>
-              <h2 id="weatherCity" class="text-2xl font-bold">Locating...</h2>
-              <p class="text-sky-100 mt-1">Fetching live API data</p>
-              <div id="weatherTemp" class="text-6xl font-extrabold mt-4">--°C</div>
-              <p id="weatherDetails" class="text-lg font-medium mt-2">Wind: -- km/h • Humidity: --%</p>
-            </div>
-            <div id="weatherIcon" class="text-8xl">⛅</div>
-          </div>
-        </div>
-       
-      </div>
-    </section>
-
-    <!-- PAGE 6: MARKET PRICES -->
-    <section id="page-market" class="page-section">
-      <div class="max-w-5xl mx-auto py-8">
-        <div class="text-center mb-8">
-          <span class="px-3 py-1 text-xs font-bold text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-900/50 rounded-full">ECONOMICS</span>
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Real-Time Market Pricing</h1>
-          <p class="text-slate-600 dark:text-slate-300 mt-2">Track daily mandi rates and wholesale commodity prices.</p>
-        </div>
-
-        <div class="overflow-x-auto bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-          <table class="w-full text-left border-collapse">
-            <thead>
-              <tr class="bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-700">
-                <th class="p-4 font-bold text-slate-900 dark:text-white">Commodity</th>
-                <th class="p-4 font-bold text-slate-900 dark:text-white">Market/State</th>
-                <th class="p-4 font-bold text-slate-900 dark:text-white">Min Price (₹/Quintal)</th>
-                <th class="p-4 font-bold text-slate-900 dark:text-white">Max Price (₹/Quintal)</th>
-                <th class="p-4 font-bold text-slate-900 dark:text-white">Trend</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 dark:divide-slate-700/60">
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Wheat</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Punjab</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,275</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">2,450</td>
-                <td class="p-4 text-emerald-600 dark:text-emerald-400 font-bold">▲ +1.2%</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 text-slate-700 dark:text-slate-200 font-semibold">Cotton</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Gujarat</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">6,800</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300">7,200</td>
-                <td class="p-4 text-red-500 font-bold">▼ -0.5%</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <!-- Navigation & Interaction Scripts -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      // 1. Single Page Navigation Logic
-      const navLinks = document.querySelectorAll('.nav-link');
-      const pages = document.querySelectorAll('.page-section');
-      const mobileDropdown = document.getElementById('mobileDropdown');
-
-      navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-          e.preventDefault();
-          const target = e.currentTarget.getAttribute('data-target');
-          if (!target) return;
-
-          // Switch pages
-          pages.forEach(p => p.classList.remove('active'));
-          const targetPage = document.getElementById('page-' + target);
-          if (targetPage) targetPage.classList.add('active');
-
-          // Close mobile menu if open
-          if (!mobileDropdown.classList.contains('hidden')) {
-            mobileDropdown.classList.add('hidden');
-          }
-          
-          window.scrollTo({ top: 0, behavior: 'smooth' });
-        });
-      });
-
-      // 2. Mobile Menu Toggle
-      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-      mobileMenuBtn.addEventListener('click', () => {
-        mobileDropdown.classList.toggle('hidden');
-      });
-
-      // 3. Dark Mode Toggle
-      const themeToggle = document.getElementById('themeToggle');
-      const htmlElement = document.documentElement;
-      const themeIcon = document.getElementById('themeIcon');
-
-      themeToggle.addEventListener('click', () => {
-        htmlElement.classList.toggle('dark');
-        themeIcon.textContent = htmlElement.classList.contains('dark') ? '☀️' : '🌙';
-      });
-
-      // 4. Crop Category Filtering
-      const catBtns = document.querySelectorAll('.crop-cat-btn');
-      const cropCards = document.querySelectorAll('.crop-card');
-
-      catBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          // Reset button styles
-          catBtns.forEach(b => {
-            b.classList.remove('bg-brand-600', 'text-white', 'shadow');
-            b.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
-          });
-          
-          // Set active style
-          e.target.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
-          e.target.classList.add('bg-brand-600', 'text-white', 'shadow');
-
-          const category = e.target.getAttribute('data-cat');
-
-          cropCards.forEach(card => {
-            if (category === 'all' || card.getAttribute('data-category') === category) {
-              card.style.display = 'block';
-            } else {
-              card.style.display = 'none';
-            }
-          });
-        });
-      });
-
-      // 5. Trigger File Upload UI Interaction
-    // 5. Live Camera & Backend Connection Logic
-      const backendUrl = 'https://harshithr391-pixel-8000.app.github.dev/analyze-leaf';
-      const video = document.getElementById('cameraFeed');
-      const canvas = document.getElementById('captureCanvas');
-      const photoPreview = document.getElementById('photoPreview');
-      const cameraPlaceholder = document.getElementById('cameraPlaceholder');
-      
-      const startCameraBtn = document.getElementById('startCameraBtn');
-      const takePhotoBtn = document.getElementById('takePhotoBtn');
-      const analyzeCameraBtn = document.getElementById('analyzeCameraBtn');
-      const retakeBtn = document.getElementById('retakeBtn');
-
-      let currentStream = null;
-      let capturedBlob = null; // Holds the image file to send to backend
-
-      // Start the device camera
-      startCameraBtn.addEventListener('click', async () => {
-        try {
-          // Request rear camera if available
-          currentStream = await navigator.mediaDevices.getUserMedia({ 
-            video: { facingMode: 'environment' } 
-          });
-          
-          video.srcObject = currentStream;
-          video.classList.remove('hidden');
-          cameraPlaceholder.classList.add('hidden');
-          photoPreview.classList.add('hidden');
-          
-          startCameraBtn.classList.add('hidden');
-          takePhotoBtn.classList.remove('hidden');
-          analyzeCameraBtn.classList.add('hidden');
-          retakeBtn.classList.add('hidden');
-        } catch (err) {
-          console.error("Camera error:", err);
-          alert("Could not access the camera. Please ensure you have granted camera permissions.");
-        }
-      });
-
-      // Capture photo from video feed
-      takePhotoBtn.addEventListener('click', () => {
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        const context = canvas.getContext('2d');
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        
-        // Show the captured photo
-        photoPreview.src = canvas.toDataURL('image/jpeg');
-        video.classList.add('hidden');
-        photoPreview.classList.remove('hidden');
-        
-        // Convert canvas to a Blob (File) for the backend
-        canvas.toBlob((blob) => {
-          capturedBlob = blob;
-        }, 'image/jpeg', 0.9);
-
-        // Update UI buttons
-        takePhotoBtn.classList.add('hidden');
-        analyzeCameraBtn.classList.remove('hidden');
-        retakeBtn.classList.remove('hidden');
-      });
-
-      // Retake photo
-      retakeBtn.addEventListener('click', () => {
-        photoPreview.classList.add('hidden');
-        video.classList.remove('hidden');
-        
-        analyzeCameraBtn.classList.add('hidden');
-        retakeBtn.classList.add('hidden');
-        takePhotoBtn.classList.remove('hidden');
-        capturedBlob = null;
-      });
-
-      // Send image to your Codespace Backend
-      analyzeCameraBtn.addEventListener('click', async () => {
-        if (!capturedBlob) return;
-
-        const formData = new FormData();
-        // Append blob as a file named 'camera_capture.jpg'
-        formData.append('file', capturedBlob, 'camera_capture.jpg');
-
-        const originalText = analyzeCameraBtn.textContent;
-        analyzeCameraBtn.textContent = "Analyzing Image...";
-        analyzeCameraBtn.disabled = true;
-
-        try {
-          // IMPORTANT: Replace with your actual Codespace URL
-          const backendUrl = 'https://YOUR-CODESPACE-NAME-8000.app.github.dev/analyze-leaf';
-          
-          const response = await fetch(backendUrl, {
-            method: 'POST',
-            body: formData
-          });
-
-          if (!response.ok) throw new Error("Server error");
-          const result = await response.json();
-          
-          alert(`Analysis Complete!\n\nDiagnosis: ${result.diagnosis}\nConfidence: ${result.confidence}`);
-          
-        } catch (error) {
-          console.error('Upload Error:', error);
-          alert('Upload failed. Check if Codespace is running and port is Public.');
-        } finally {
-          analyzeCameraBtn.textContent = originalText;
-          analyzeCameraBtn.disabled = false;
-        }
-      });
-// --- OPEN-METEO WEATHER API CONNECTION ---
-      
-      // Function to fetch API data
-      async function getWeatherData(lat, lon) {
-        try {
-          // 1. The API URL we are connecting to
-          const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m&timezone=auto`;
-          
-          // 2. Fetch the data from the API
-          const response = await fetch(apiUrl);
-          
-          // 3. Unpack the JSON data sent back by the API
-          const data = await response.json();
-          const current = data.current;
-
-          // 4. Update the Frontend HTML with the API data
-          document.getElementById('weatherTemp').textContent = `${current.temperature_2m}°C`;
-          document.getElementById('weatherDetails').textContent = `Wind: ${current.wind_speed_10m} km/h • Humidity: ${current.relative_humidity_2m}%`;
-          document.getElementById('weatherCity').textContent = "Current Location";
-          
-          // Simple weather icon logic based on API weather_code
-          const icon = current.weather_code > 50 ? '🌧️' : (current.is_day ? '☀️' : '🌙');
-          document.getElementById('weatherIcon').textContent = icon;
-
-        } catch (error) {
-          console.error("API Connection Error:", error);
-          document.getElementById('weatherCity').textContent = "Weather Unavailable";
-        }
-      }
-
-      // Get user's device location, then call the API
-      if ("geolocation" in navigator) {
-        navigator.geolocation.getCurrentPosition(
-          (position) => {
-            getWeatherData(position.coords.latitude, position.coords.longitude);
-          },
-          (error) => {
-            // Default to New Delhi coordinates if user denies location
-            getWeatherData(28.6139, 77.2090); 
-            document.getElementById('weatherCity').textContent = "New Delhi (Default)";
-          }
-        );
-      }
-    });
-  </script>
-</body>
-</html>
+          <span class="px-3 py-1 text-xs font-bold text-brand-700 dark:text-brand-300 bg-brand-10
