@@ -456,25 +456,50 @@
     </section>
 
     <!-- PAGE 4: DISEASE DETECTION -->
+ <!-- PAGE 4: DISEASE DETECTION -->
     <section id="page-disease" class="page-section">
       <div class="max-w-3xl mx-auto py-8">
         <div class="text-center mb-8">
           <span class="px-3 py-1 text-xs font-bold text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/50 rounded-full">AI DIAGNOSTICS</span>
           <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Leaf Disease Detection</h1>
-          <p class="text-slate-600 dark:text-slate-300 mt-2">Upload a clear photo of an affected plant leaf to simulate an AI-driven health analysis.</p>
+          <p class="text-slate-600 dark:text-slate-300 mt-2">Use your camera to scan an affected plant leaf for health analysis.</p>
         </div>
 
-        <div class="bg-white dark:bg-slate-800 rounded-2xl p-8 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
-          <div class="border-2 border-dashed border-slate-300 dark:border-slate-600 rounded-xl p-12 hover:bg-slate-50 dark:hover:bg-slate-750 transition cursor-pointer" id="dropzone">
-            <span class="text-6xl mb-4 block">📸</span>
-            <p class="text-slate-700 dark:text-slate-200 font-bold text-lg mb-2">Tap to capture or upload image</p>
-            <p class="text-slate-500 dark:text-slate-400 text-sm">Supports JPG, PNG (Max 5MB)</p>
-            <input type="file" class="hidden" id="leafUpload" accept="image/*" capture="environment">
+        <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
+          
+          <!-- Camera Viewfinder -->
+          <div id="cameraContainer" class="relative w-full max-w-md mx-auto aspect-[3/4] sm:aspect-video bg-slate-900 rounded-xl overflow-hidden mb-6 flex items-center justify-center">
+            <!-- Video feed for live camera -->
+            <video id="cameraFeed" autoplay playsinline class="w-full h-full object-cover hidden"></video>
+            <!-- Image preview for captured photo -->
+            <img id="photoPreview" class="w-full h-full object-cover hidden" alt="Captured leaf">
+            
+            <!-- Default placeholder before camera starts -->
+            <div id="cameraPlaceholder" class="text-slate-400 flex flex-col items-center">
+              <span class="text-6xl mb-4">📷</span>
+              <p class="font-bold">Camera off</p>
+            </div>
+          </div>
+
+          <!-- Hidden canvas for capturing the image frame -->
+          <canvas id="captureCanvas" class="hidden"></canvas>
+
+          <!-- Controls -->
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <button id="startCameraBtn" class="w-full sm:w-auto px-6 py-3 bg-slate-800 dark:bg-slate-700 text-white font-bold rounded-xl hover:bg-slate-700 transition">
+              Open Camera
+            </button>
+            <button id="takePhotoBtn" class="w-full sm:w-auto px-6 py-3 bg-brand-600 text-white font-bold rounded-xl shadow-lg hover:bg-brand-700 transition hidden">
+              Snap Photo
+            </button>
+            <button id="analyzeCameraBtn" class="w-full sm:w-auto px-8 py-3 bg-brand-600 text-white font-bold rounded-xl shadow-lg hover:bg-brand-700 transition hidden">
+              Analyze Crop Health
+            </button>
+            <button id="retakeBtn" class="w-full sm:w-auto px-6 py-3 bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white font-bold rounded-xl hover:bg-slate-300 transition hidden">
+              Retake
+            </button>
           </div>
           
-          <button class="mt-6 w-full sm:w-auto px-8 py-3 bg-brand-600 hover:bg-brand-700 text-white font-bold rounded-xl shadow-lg transition opacity-50 cursor-not-allowed" id="analyzeBtn" disabled>
-            Analyze Crop Health
-          </button>
         </div>
       </div>
     </section>
@@ -617,17 +642,109 @@
       });
 
       // 5. Trigger File Upload UI Interaction
-      const dropzone = document.getElementById('dropzone');
-      const fileInput = document.getElementById('leafUpload');
-      const analyzeBtn = document.getElementById('analyzeBtn');
+    // 5. Live Camera & Backend Connection Logic
+      const video = document.getElementById('cameraFeed');
+      const canvas = document.getElementById('captureCanvas');
+      const photoPreview = document.getElementById('photoPreview');
+      const cameraPlaceholder = document.getElementById('cameraPlaceholder');
       
-      dropzone.addEventListener('click', () => fileInput.click());
-      
-      fileInput.addEventListener('change', (e) => {
-        if(e.target.files.length > 0) {
-           analyzeBtn.disabled = false;
-           analyzeBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-           dropzone.querySelector('p.font-bold').textContent = "Image ready: " + e.target.files[0].name;
+      const startCameraBtn = document.getElementById('startCameraBtn');
+      const takePhotoBtn = document.getElementById('takePhotoBtn');
+      const analyzeCameraBtn = document.getElementById('analyzeCameraBtn');
+      const retakeBtn = document.getElementById('retakeBtn');
+
+      let currentStream = null;
+      let capturedBlob = null; // Holds the image file to send to backend
+
+      // Start the device camera
+      startCameraBtn.addEventListener('click', async () => {
+        try {
+          // Request rear camera if available
+          currentStream = await navigator.mediaDevices.getUserMedia({ 
+            video: { facingMode: 'environment' } 
+          });
+          
+          video.srcObject = currentStream;
+          video.classList.remove('hidden');
+          cameraPlaceholder.classList.add('hidden');
+          photoPreview.classList.add('hidden');
+          
+          startCameraBtn.classList.add('hidden');
+          takePhotoBtn.classList.remove('hidden');
+          analyzeCameraBtn.classList.add('hidden');
+          retakeBtn.classList.add('hidden');
+        } catch (err) {
+          console.error("Camera error:", err);
+          alert("Could not access the camera. Please ensure you have granted camera permissions.");
+        }
+      });
+
+      // Capture photo from video feed
+      takePhotoBtn.addEventListener('click', () => {
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        const context = canvas.getContext('2d');
+        context.drawImage(video, 0, 0, canvas.width, canvas.height);
+        
+        // Show the captured photo
+        photoPreview.src = canvas.toDataURL('image/jpeg');
+        video.classList.add('hidden');
+        photoPreview.classList.remove('hidden');
+        
+        // Convert canvas to a Blob (File) for the backend
+        canvas.toBlob((blob) => {
+          capturedBlob = blob;
+        }, 'image/jpeg', 0.9);
+
+        // Update UI buttons
+        takePhotoBtn.classList.add('hidden');
+        analyzeCameraBtn.classList.remove('hidden');
+        retakeBtn.classList.remove('hidden');
+      });
+
+      // Retake photo
+      retakeBtn.addEventListener('click', () => {
+        photoPreview.classList.add('hidden');
+        video.classList.remove('hidden');
+        
+        analyzeCameraBtn.classList.add('hidden');
+        retakeBtn.classList.add('hidden');
+        takePhotoBtn.classList.remove('hidden');
+        capturedBlob = null;
+      });
+
+      // Send image to your Codespace Backend
+      analyzeCameraBtn.addEventListener('click', async () => {
+        if (!capturedBlob) return;
+
+        const formData = new FormData();
+        // Append blob as a file named 'camera_capture.jpg'
+        formData.append('file', capturedBlob, 'camera_capture.jpg');
+
+        const originalText = analyzeCameraBtn.textContent;
+        analyzeCameraBtn.textContent = "Analyzing Image...";
+        analyzeCameraBtn.disabled = true;
+
+        try {
+          // IMPORTANT: Replace with your actual Codespace URL
+          const backendUrl = 'https://YOUR-CODESPACE-NAME-8000.app.github.dev/analyze-leaf';
+          
+          const response = await fetch(backendUrl, {
+            method: 'POST',
+            body: formData
+          });
+
+          if (!response.ok) throw new Error("Server error");
+          const result = await response.json();
+          
+          alert(`Analysis Complete!\n\nDiagnosis: ${result.diagnosis}\nConfidence: ${result.confidence}`);
+          
+        } catch (error) {
+          console.error('Upload Error:', error);
+          alert('Upload failed. Check if Codespace is running and port is Public.');
+        } finally {
+          analyzeCameraBtn.textContent = originalText;
+          analyzeCameraBtn.disabled = false;
         }
       });
     });
