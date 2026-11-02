@@ -747,25 +747,32 @@
       // 5. OPEN-METEO WEATHER API CONNECTION (WITH CITY SEARCH)
       
       // Function to fetch weather by lat/lon
-      async function getWeatherData(lat, lon, locationName = "Current Location") {
-        try {
-          const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m&timezone=auto`;
-          const response = await fetch(apiUrl);
-          const data = await response.json();
-          const current = data.current;
+   async function getWeatherData(lat, lon, locationName = "Current Location") {
+    try {
+      const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m&timezone=auto`;
+      const response = await fetch(apiUrl);
+      
+      if (!response.ok) throw new Error(`Weather server is down (Status ${response.status})`);
+      
+      const data = await response.json();
+      if (!data || !data.current) throw new Error("Weather data missing from response");
+      
+      const current = data.current;
 
-          document.getElementById('weatherTemp').textContent = `${current.temperature_2m}°C`;
-          document.getElementById('weatherDetails').textContent = `Wind: ${current.wind_speed_10m} km/h • Humidity: ${current.relative_humidity_2m}%`;
-          document.getElementById('weatherCity').textContent = locationName;
-          
-          const icon = current.weather_code > 50 ? '🌧️' : (current.is_day ? '☀️' : '🌙');
-          document.getElementById('weatherIcon').textContent = icon;
+      document.getElementById('weatherTemp').textContent = `${current.temperature_2m}°C`;
+      document.getElementById('weatherDetails').textContent = `Wind: ${current.wind_speed_10m} km/h • Humidity: ${current.relative_humidity_2m}%`;
+      document.getElementById('weatherCity').textContent = locationName;
+      
+      const icon = current.weather_code > 50 ? '🌧️' : (current.is_day ? '☀️' : '🌙');
+      document.getElementById('weatherIcon').textContent = icon;
 
-        } catch (error) {
-          console.error("API Connection Error:", error);
-          document.getElementById('weatherCity').textContent = "Weather Unavailable";
-        }
-      }
+    } catch (error) {
+      console.error("API Connection Error:", error);
+      document.getElementById('weatherCity').textContent = "Weather API Offline";
+      document.getElementById('weatherTemp').textContent = "--°C";
+      document.getElementById('weatherDetails').textContent = "Please try again later";
+    }
+  } 
 
       // Function to get lat/lon from city name using Geocoding API
       async function searchCityWeather(cityName) {
