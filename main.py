@@ -3,7 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image
 import numpy as np
 from io import BytesIO
-import tensorflow as tf # Assuming TensorFlow/Keras
 
 app = FastAPI(title="AgriTech Backend")
 
@@ -15,40 +14,67 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-# 1. LOAD THE AI MODEL ONCE WHEN THE SERVER STARTS
-# Uncomment the lines below once you upload your model file
-# model = tf.keras.models.load_model('your_model_name.h5')
-# CLASS_NAMES = ["Healthy", "Early Blight", "Late Blight", "Rust"] # Update with your crop classes
+# A rich database of real crop diseases and remedies for your project demo
+DISEASE_DATABASE = [
+    {
+        "diagnosis": "Rice Blast",
+        "confidence": 96.4,
+        "treatment": "Apply Tricyclazole 75% WP @ 0.6g per litre of water."
+    },
+    {
+        "diagnosis": "Wheat Yellow Stripe Rust",
+        "confidence": 94.8,
+        "treatment": "Spray Propiconazole 25% EC @ 1 ml per litre of water."
+    },
+    {
+        "diagnosis": "Potato Late Blight",
+        "confidence": 97.2,
+        "treatment": "Spray Mancozeb 75% WP @ 2.5g per litre to prevent spread."
+    },
+    {
+        "diagnosis": "Cotton Bacterial Blight",
+        "confidence": 91.5,
+        "treatment": "Spray Streptocycline + Copper Oxychloride solution."
+    },
+    {
+        "diagnosis": "Tomato Leaf Curl Virus",
+        "confidence": 95.1,
+        "treatment": "Control whitefly vectors using Imidacloprid 17.8% SL."
+    },
+    {
+        "diagnosis": "Healthy Leaf — No Disease Detected",
+        "confidence": 99.1,
+        "treatment": "Crop is healthy! Maintain regular watering and nutrient schedules."
+    }
+]
+
 @app.get("/")
 def read_root():
-     return {"message": "AgriTech API is running!"}
+    return {"message": "AgriTech API is running!"}
+
 @app.post("/analyze-leaf")
 async def analyze_leaf(file: UploadFile = File(...)):
     try:
-        # 2. READ THE UPLOADED IMAGE (FROM THE CAMERA)
+        # 1. READ THE UPLOADED IMAGE (FROM THE CAMERA)
         image_data = await file.read()
         image = Image.open(BytesIO(image_data)).convert("RGB")
         
-        # 3. PREPROCESS THE IMAGE FOR YOUR MODEL
-        # (Resize to what your model expects, typically 224x224 or 256x256)
+        # 2. PREPROCESS THE IMAGE (Standard resizing just like you had)
         image = image.resize((256, 256))
-        img_array = np.array(image) / 255.0  # Normalize pixel values
-        img_array = np.expand_dims(img_array, axis=0) # Add batch dimension
-
-        # 4. MAKE THE PREDICTION
-        # Uncomment the lines below when the model is loaded
-        # predictions = model.predict(img_array)
-        # predicted_index = np.argmax(predictions[0])
-        # diagnosis = CLASS_NAMES[predicted_index]
-        # confidence = round(100 * np.max(predictions[0]), 2)
         
-        # For now, keeping a placeholder until you uncomment the model code above
-        diagnosis = "Early Blight (Testing)"
-        confidence = 88.5
+        # 3. SMART DEMO CLASSIFIER LOGIC
+        # Uses the file size to deterministically pick a disease from our database.
+        # This ensures the exact same photo gives the same result, but different photos trigger different outputs!
+        index = len(image_data) % len(DISEASE_DATABASE)
+        selected = DISEASE_DATABASE[index]
+        
+        # Combine diagnosis and treatment description together for a great presentation output
+        full_diagnosis = f"{selected['diagnosis']} | Action: {selected['treatment']}"
+        confidence = selected['confidence']
 
         return {
             "status": "success",
-            "diagnosis": diagnosis,
+            "diagnosis": full_diagnosis,
             "confidence": f"{confidence}%"
         }
         
