@@ -69,7 +69,6 @@
   </script>
 
   <style>
-    /* Safe-Area Padding for iOS Notch and Home Indicator */
     :root {
       --sat: env(safe-area-inset-top, 0px);
       --sab: env(safe-area-inset-bottom, 0px);
@@ -91,7 +90,6 @@
       }
     }
 
-    /* Page View Transitions */
     .page-section {
       display: none;
       opacity: 0;
@@ -104,7 +102,6 @@
       transform: translateY(0);
     }
 
-    /* Custom Touch Targets */
     .touch-target {
       min-height: 48px;
       min-width: 48px;
@@ -113,19 +110,17 @@
 </head>
 <body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 min-h-screen flex flex-col justify-between transition-colors duration-200">
 
-  <!-- Desktop & Tablet Header -->
+  <!-- Header -->
   <header class="sticky top-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-md border-b border-slate-200 dark:border-slate-800 transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16 sm:h-20">
         
-        <!-- Logo -->
         <a href="#home" class="nav-link flex items-center gap-2 text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white" data-target="home">
           <span class="text-2xl sm:text-3xl">🌱</span> 
           <span>AgriTech</span>
           <span class="text-[10px] font-bold tracking-widest text-brand-600 bg-brand-100 dark:bg-brand-900/50 dark:text-brand-300 px-2 py-0.5 rounded-full uppercase">PWA</span>
         </a>
 
-        <!-- Desktop Navigation -->
         <nav class="hidden md:flex items-center gap-1">
           <a href="#home" data-target="home" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">Home</a>
           <a href="#about" data-target="about" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">About</a>
@@ -135,20 +130,11 @@
           <a href="#market" data-target="market" class="nav-link px-3 py-2 text-sm font-semibold rounded-lg hover:bg-slate-100 dark:hover:bg-slate-800 transition">Market Prices</a>
         </nav>
 
-        <!-- Right Side Controls -->
         <div class="flex items-center gap-2">
-          <!-- Dark Mode Toggle -->
           <button id="themeToggle" class="touch-target p-2 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition" aria-label="Toggle Theme">
             <span id="themeIcon" class="text-xl">🌙</span>
           </button>
 
-          <!-- Desktop Auth Buttons -->
-          <div class="hidden sm:flex items-center gap-2">
-            <button class="px-4 py-2 text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg transition" data-open="login">Login</button>
-            <button class="px-4 py-2 text-sm font-semibold text-white bg-brand-600 hover:bg-brand-700 rounded-lg shadow-sm transition" data-open="register">Register</button>
-          </div>
-
-          <!-- Mobile Top Navigation Toggle -->
           <button id="mobileMenuBtn" class="md:hidden touch-target p-2 text-slate-700 dark:text-slate-200" aria-label="Open navigation menu">
             <span class="text-2xl">☰</span>
           </button>
@@ -157,7 +143,6 @@
       </div>
     </div>
 
-    <!-- Mobile Dropdown Navigation -->
     <div id="mobileDropdown" class="hidden md:hidden bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 px-4 py-3 space-y-1">
       <a href="#home" data-target="home" class="nav-link block px-3 py-2.5 rounded-lg text-base font-semibold hover:bg-slate-100 dark:hover:bg-slate-800">Home</a>
       <a href="#about" data-target="about" class="nav-link block px-3 py-2.5 rounded-lg text-base font-semibold hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
@@ -165,26 +150,10 @@
       <a href="#disease" data-target="disease" class="nav-link block px-3 py-2.5 rounded-lg text-base font-semibold hover:bg-slate-100 dark:hover:bg-slate-800">Disease Detection</a>
       <a href="#weather" data-target="weather" class="nav-link block px-3 py-2.5 rounded-lg text-base font-semibold hover:bg-slate-100 dark:hover:bg-slate-800">Weather</a>
       <a href="#market" data-target="market" class="nav-link block px-3 py-2.5 rounded-lg text-base font-semibold hover:bg-slate-100 dark:hover:bg-slate-800">Market Prices</a>
-      <div class="pt-3 border-t border-slate-100 dark:border-slate-800 flex gap-2">
-        <button class="flex-1 py-2 text-center font-semibold text-slate-700 dark:text-slate-200 border border-slate-300 dark:border-slate-700 rounded-lg" data-open="login">Login</button>
-        <button class="flex-1 py-2 text-center font-semibold text-white bg-brand-600 rounded-lg" data-open="register">Register</button>
-      </div>
     </div>
   </header>
 
-  <!-- PWA Install Banner -->
-  <div id="pwaBanner" class="hidden bg-slate-900 text-white px-4 py-3 border-b border-slate-800 flex items-center justify-between text-xs sm:text-sm">
-    <div class="flex items-center gap-2">
-      <span class="text-xl">📱</span>
-      <span>Install AgriTech PWA for faster offline access</span>
-    </div>
-    <div class="flex items-center gap-2">
-      <button id="pwaInstallBtn" class="bg-brand-600 hover:bg-brand-500 px-3 py-1.5 rounded-lg font-bold text-white transition">Install</button>
-      <button id="pwaDismissBtn" class="text-slate-400 hover:text-white p-1">✕</button>
-    </div>
-  </div>
-
-  <!-- MAIN MULTI-PAGE CONTAINER -->
+  <!-- MAIN CONTAINER -->
   <main class="flex-grow max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-6">
 
     <!-- PAGE 1: HOME -->
@@ -209,7 +178,6 @@
         </div>
       </div>
 
-      <!-- Quick Feature Cards Grid -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 my-8">
         <a href="#crop" data-target="crop" class="nav-link block p-6 bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700/60 shadow-sm hover:shadow-md transition group">
           <div class="w-12 h-12 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 text-emerald-600 dark:text-emerald-400 flex items-center justify-center text-2xl mb-4 group-hover:scale-110 transition">🌿</div>
@@ -241,8 +209,8 @@
     <section id="page-about" class="page-section">
       <div class="max-w-4xl mx-auto space-y-8 py-4">
         <div class="text-center">
-          <span class="px-3 py-1 text-xs font-bold text-brand-700 dark:text-brand-300 bg-brand-10
-<h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Helping farmers grow a better future.</h1>
+          <span class="px-3 py-1 text-xs font-bold text-brand-700 dark:text-brand-300 bg-brand-100 dark:bg-brand-900/50 rounded-full">ABOUT AGPWA</span>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Helping farmers grow a better future.</h1>
           <p class="text-slate-600 dark:text-slate-300 mt-2">AgriTech combines accessible UI design with practical agricultural information.</p>
         </div>
 
@@ -264,167 +232,114 @@
         </div>
       </div>
     </section>
-<!-- PAGE 3: CROPS GROWN IN INDIA DIRECTORY -->
+
+    <!-- PAGE 3: CROPS GROWN IN INDIA DIRECTORY -->
     <section id="page-crop" class="page-section">
       <div class="max-w-6xl mx-auto py-8 px-4">
         
-        <!-- Header -->
         <div class="text-center mb-8">
           <span class="px-3 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/50 rounded-full">INDIAN AGRICULTURE DIRECTORY</span>
           <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Crops Grown in India</h1>
           <p class="text-slate-600 dark:text-slate-300 mt-2 max-w-xl mx-auto">Explore growing conditions, season classifications, soil requirements, and cultivation tips for major Indian crops.</p>
         </div>
 
-        <!-- Search Bar -->
         <div class="mb-6 max-w-xl mx-auto">
           <input type="text" id="cropSearchInput" onkeyup="filterCropDirectory()" placeholder="Search crops (e.g., Rice, Wheat, Cotton, Tomato)..." class="w-full px-4 py-3.5 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 outline-none transition shadow-sm">
         </div>
 
-        <!-- Category Filter Pills -->
         <div class="flex flex-wrap justify-center gap-2 mb-10">
-          <button onclick="filterCategory('all',event)" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-emerald-600 text-white shadow-sm transition">All Crops</button>
-          <button onclick="filterCategory('cereal',event)" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Cereals & Grains</button>
-          <button onclick="filterCategory('pulse',event)" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Pulses</button>
-          <button onclick="filterCategory('oilseed',event)" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Oilseeds</button>
-          <button onclick="filterCategory('commercial',event)" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Commercial</button>
-          <button onclick="filterCategory('horticulture',event)" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Horticulture</button>
+          <button onclick="filterCategory('all', event)" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-emerald-600 text-white shadow-sm transition">All Crops</button>
+          <button onclick="filterCategory('cereal', event)" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Cereals & Grains</button>
+          <button onclick="filterCategory('pulse', event)" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Pulses</button>
+          <button onclick="filterCategory('oilseed', event)" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Oilseeds</button>
+          <button onclick="filterCategory('commercial', event)" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Commercial</button>
+          <button onclick="filterCategory('horticulture', event)" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Horticulture</button>
         </div>
 
-        <!-- Crops Grid -->
         <div id="cropsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-
-          <!-- 1. Rice -->
           <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="cereal" data-name="rice paddy">
-            <div class="flex items-start justify-between mb-4">
-              <span class="text-4xl">🌾</span>
-              <span class="px-2.5 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 rounded-full">KHARIF • CEREAL</span>
-            </div>
+            <div class="flex items-start justify-between mb-4"><span class="text-4xl">🌾</span><span class="px-2.5 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 rounded-full">KHARIF • CEREAL</span></div>
             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Rice (Paddy)</h3>
             <p class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mb-3">Hot & Humid (20°C–37°C)</p>
             <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Clayey loams retaining standing water.</p>
           </div>
 
-          <!-- 2. Wheat -->
           <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="cereal" data-name="wheat gehun">
-            <div class="flex items-start justify-between mb-4">
-              <span class="text-4xl">🌾</span>
-              <span class="px-2.5 py-1 text-xs font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 rounded-full">RABI • CEREAL</span>
-            </div>
+            <div class="flex items-start justify-between mb-4"><span class="text-4xl">🌾</span><span class="px-2.5 py-1 text-xs font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 rounded-full">RABI • CEREAL</span></div>
             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Wheat (Gehun)</h3>
             <p class="text-xs font-medium text-amber-600 dark:text-amber-400 mb-3">Cool & Moist Winter (10°C–15°C)</p>
             <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Well-drained fertile loams.</p>
           </div>
 
-          <!-- 3. Maize -->
           <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="cereal" data-name="maize makka">
-            <div class="flex items-start justify-between mb-4">
-              <span class="text-4xl">🌽</span>
-              <span class="px-2.5 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 rounded-full">KHARIF • CEREAL</span>
-            </div>
+            <div class="flex items-start justify-between mb-4"><span class="text-4xl">🌽</span><span class="px-2.5 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 rounded-full">KHARIF • CEREAL</span></div>
             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Maize (Makka)</h3>
             <p class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mb-3">Warm Climate (21°C–27°C)</p>
             <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Old alluvial soil with good drainage.</p>
           </div>
 
-          <!-- 4. Gram -->
           <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="pulse" data-name="gram chana pulses">
-            <div class="flex items-start justify-between mb-4">
-              <span class="text-4xl">🌱</span>
-              <span class="px-2.5 py-1 text-xs font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 rounded-full">RABI • PULSE</span>
-            </div>
+            <div class="flex items-start justify-between mb-4"><span class="text-4xl">🌱</span><span class="px-2.5 py-1 text-xs font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 rounded-full">RABI • PULSE</span></div>
             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Gram (Chana)</h3>
             <p class="text-xs font-medium text-amber-600 dark:text-amber-400 mb-3">Cool Climate (20°C–25°C)</p>
             <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Light loamy or heavy clay soils.</p>
           </div>
 
-          <!-- 5. Pigeon Pea -->
           <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="pulse" data-name="pigeon pea tur arhar pulses">
-            <div class="flex items-start justify-between mb-4">
-              <span class="text-4xl">🫘</span>
-              <span class="px-2.5 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 rounded-full">KHARIF • PULSE</span>
-            </div>
+            <div class="flex items-start justify-between mb-4"><span class="text-4xl">🫘</span><span class="px-2.5 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 rounded-full">KHARIF • PULSE</span></div>
             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Pigeon Pea (Tur)</h3>
             <p class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mb-3">Warm & Moist (26°C–30°C)</p>
             <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Well-drained loamy soils.</p>
           </div>
 
-          <!-- 6. Groundnut -->
           <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="oilseed" data-name="groundnut mungfali oilseed">
-            <div class="flex items-start justify-between mb-4">
-              <span class="text-4xl">🥜</span>
-              <span class="px-2.5 py-1 text-xs font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 rounded-full">KHARIF • OILSEED</span>
-            </div>
+            <div class="flex items-start justify-between mb-4"><span class="text-4xl">🥜</span><span class="px-2.5 py-1 text-xs font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 rounded-full">KHARIF • OILSEED</span></div>
             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Groundnut (Mungfali)</h3>
             <p class="text-xs font-medium text-amber-600 dark:text-amber-400 mb-3">Warm Climate (20°C–30°C)</p>
             <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Sandy loams and well-drained soils.</p>
           </div>
 
-          <!-- 7. Soybean -->
           <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="oilseed" data-name="soybean oilseed">
-            <div class="flex items-start justify-between mb-4">
-              <span class="text-4xl">🌿</span>
-              <span class="px-2.5 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 rounded-full">KHARIF • OILSEED</span>
-            </div>
+            <div class="flex items-start justify-between mb-4"><span class="text-4xl">🌿</span><span class="px-2.5 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 rounded-full">KHARIF • OILSEED</span></div>
             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Soybean</h3>
             <p class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mb-3">Warm & Humid (20°C–30°C)</p>
             <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Fertile alluvial or clay-loam soils.</p>
           </div>
 
-          <!-- 8. Cotton -->
           <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="commercial" data-name="cotton kapas commercial">
-            <div class="flex items-start justify-between mb-4">
-              <span class="text-4xl">☁️</span>
-              <span class="px-2.5 py-1 text-xs font-bold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 rounded-full">COMMERCIAL</span>
-            </div>
+            <div class="flex items-start justify-between mb-4"><span class="text-4xl">☁️</span><span class="px-2.5 py-1 text-xs font-bold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 rounded-full">COMMERCIAL</span></div>
             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Cotton (Kapas)</h3>
             <p class="text-xs font-medium text-purple-600 dark:text-purple-400 mb-3">High Temperature (21°C–30°C)</p>
             <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Black cotton soil (Regur) of Deccan plateau.</p>
           </div>
 
-          <!-- 9. Sugarcane -->
           <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="commercial" data-name="sugarcane ganna commercial">
-            <div class="flex items-start justify-between mb-4">
-              <span class="text-4xl">🎋</span>
-              <span class="px-2.5 py-1 text-xs font-bold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 rounded-full">COMMERCIAL</span>
-            </div>
+            <div class="flex items-start justify-between mb-4"><span class="text-4xl">🎋</span><span class="px-2.5 py-1 text-xs font-bold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 rounded-full">COMMERCIAL</span></div>
             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Sugarcane (Ganna)</h3>
             <p class="text-xs font-medium text-purple-600 dark:text-purple-400 mb-3">Hot & Humid (20°C–35°C)</p>
             <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Deep rich loamy soils with high moisture.</p>
           </div>
 
-          <!-- 10. Potato -->
           <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="horticulture" data-name="potato aloo horticulture vegetable">
-            <div class="flex items-start justify-between mb-4">
-              <span class="text-4xl">🥔</span>
-              <span class="px-2.5 py-1 text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 rounded-full">HORTICULTURE</span>
-            </div>
+            <div class="flex items-start justify-between mb-4"><span class="text-4xl">🥔</span><span class="px-2.5 py-1 text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 rounded-full">HORTICULTURE</span></div>
             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Potato (Aloo)</h3>
             <p class="text-xs font-medium text-blue-600 dark:text-blue-400 mb-3">Cool Weather (15°C–20°C)</p>
             <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Loose, friable sandy loams rich in humus.</p>
           </div>
 
-          <!-- 11. Tomato -->
           <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="horticulture" data-name="tomato tamatar horticulture vegetable">
-            <div class="flex items-start justify-between mb-4">
-              <span class="text-4xl">🍅</span>
-              <span class="px-2.5 py-1 text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 rounded-full">HORTICULTURE</span>
-            </div>
+            <div class="flex items-start justify-between mb-4"><span class="text-4xl">🍅</span><span class="px-2.5 py-1 text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 rounded-full">HORTICULTURE</span></div>
             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Tomato</h3>
             <p class="text-xs font-medium text-blue-600 dark:text-blue-400 mb-3">Moderate Climate (18°C–25°C)</p>
             <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Well-drained sandy loam with organic matter.</p>
           </div>
 
-          <!-- 12. Banana -->
           <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="horticulture" data-name="banana kela horticulture fruit">
-            <div class="flex items-start justify-between mb-4">
-              <span class="text-4xl">🍌</span>
-              <span class="px-2.5 py-1 text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 rounded-full">HORTICULTURE</span>
-            </div>
+            <div class="flex items-start justify-between mb-4"><span class="text-4xl">🍌</span><span class="px-2.5 py-1 text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 rounded-full">HORTICULTURE</span></div>
             <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Banana (Kela)</h3>
             <p class="text-xs font-medium text-blue-600 dark:text-blue-400 mb-3">Tropical Warm (20°C–35°C)</p>
             <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Rich, deep, well-drained fertile soils.</p>
           </div>
-
         </div>
       </div>
     </section>
@@ -439,12 +354,9 @@
         </div>
 
         <div class="bg-white dark:bg-slate-800 rounded-2xl p-6 sm:p-8 border border-slate-200 dark:border-slate-700 shadow-sm text-center">
-          
-          <!-- Camera Viewfinder -->
           <div id="cameraContainer" class="relative w-full max-w-md mx-auto aspect-[3/4] sm:aspect-video bg-slate-900 rounded-xl overflow-hidden mb-6 flex items-center justify-center">
             <video id="cameraFeed" autoplay playsinline class="w-full h-full object-cover hidden"></video>
             <img id="photoPreview" class="w-full h-full object-cover hidden" alt="Captured leaf">
-            
             <div id="cameraPlaceholder" class="text-slate-400 flex flex-col items-center">
               <span class="text-6xl mb-4">📷</span>
               <p class="font-bold">Camera off</p>
@@ -453,22 +365,12 @@
 
           <canvas id="captureCanvas" class="hidden"></canvas>
 
-          <!-- Controls -->
           <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
-            <button id="startCameraBtn" class="w-full sm:w-auto px-6 py-3 bg-slate-800 dark:bg-slate-700 text-white font-bold rounded-xl hover:bg-slate-700 transition">
-              Open Camera
-            </button>
-            <button id="takePhotoBtn" class="w-full sm:w-auto px-6 py-3 bg-brand-600 text-white font-bold rounded-xl shadow-lg hover:bg-brand-700 transition hidden">
-              Snap Photo
-            </button>
-            <button id="analyzeCameraBtn" class="w-full sm:w-auto px-8 py-3 bg-brand-600 text-white font-bold rounded-xl shadow-lg hover:bg-brand-700 transition hidden">
-              Analyze Crop Health
-            </button>
-            <button id="retakeBtn" class="w-full sm:w-auto px-6 py-3 bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white font-bold rounded-xl hover:bg-slate-300 transition hidden">
-              Retake
-            </button>
+            <button id="startCameraBtn" class="w-full sm:w-auto px-6 py-3 bg-slate-800 dark:bg-slate-700 text-white font-bold rounded-xl hover:bg-slate-700 transition">Open Camera</button>
+            <button id="takePhotoBtn" class="w-full sm:w-auto px-6 py-3 bg-brand-600 text-white font-bold rounded-xl shadow-lg hover:bg-brand-700 transition hidden">Snap Photo</button>
+            <button id="analyzeCameraBtn" class="w-full sm:w-auto px-8 py-3 bg-brand-600 text-white font-bold rounded-xl shadow-lg hover:bg-brand-700 transition hidden">Analyze Crop Health</button>
+            <button id="retakeBtn" class="w-full sm:w-auto px-6 py-3 bg-slate-200 dark:bg-slate-700 text-slate-800 dark:text-white font-bold rounded-xl hover:bg-slate-300 transition hidden">Retake</button>
           </div>
-          
         </div>
       </div>
     </section>
@@ -481,13 +383,11 @@
           <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Farming Weather Forecast</h1>
         </div>
 
-        <!-- NEW: City Search Bar -->
         <div class="flex items-center gap-2 mb-6 max-w-md mx-auto">
           <input type="text" id="citySearchInput" placeholder="Search any city (e.g., Pune, Nagpur)..." class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-sky-500 outline-none transition shadow-sm">
           <button id="citySearchBtn" class="px-5 py-3 bg-sky-600 hover:bg-sky-700 text-white font-bold rounded-xl transition shadow-md">Search</button>
         </div>
 
-        <!-- Weather Card -->
         <div class="bg-gradient-to-br from-sky-500 to-blue-600 rounded-3xl p-6 sm:p-8 text-white shadow-lg">
           <div class="flex flex-col sm:flex-row items-center justify-between gap-6">
             <div>
@@ -499,12 +399,11 @@
             <div id="weatherIcon" class="text-8xl">⛅</div>
           </div>
         </div>
-        
       </div>
     </section>
 
     <!-- PAGE 6: MARKET PRICES -->
- <section id="page-market" class="page-section">
+    <section id="page-market" class="page-section">
       <div class="max-w-5xl mx-auto py-8">
         <div class="text-center mb-8">
           <span class="px-3 py-1 text-xs font-bold text-purple-700 dark:text-purple-300 bg-purple-100 dark:bg-purple-900/50 rounded-full">ECONOMICS & COMMODITIES</span>
@@ -512,7 +411,6 @@
           <p class="text-slate-600 dark:text-slate-300 mt-2">Live wholesale rates and MSP across cereals, pulses, oilseeds, vegetables, and fruits (₹/Quintal).</p>
         </div>
 
-        <!-- Search Bar Filter -->
         <div class="mb-6 max-w-md mx-auto">
           <input type="text" id="marketSearchInput" onkeyup="filterMarketTable()" placeholder="🔍 Search any crop or state instantly..." class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-purple-500 outline-none transition shadow-sm">
         </div>
@@ -529,27 +427,20 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-slate-100 dark:divide-slate-700/60">
-              <!-- Cereals -->
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Paddy (Common)</td><td class="p-4 text-slate-600 dark:text-slate-400">Punjab, Haryana</td><td class="p-4 text-slate-600 dark:text-slate-300">2,441</td><td class="p-4 text-slate-600 dark:text-slate-300">2,461</td><td class="p-4 text-emerald-600 font-bold">▲ +0.8%</td></tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Wheat (Gehu)</td><td class="p-4 text-slate-600 dark:text-slate-400">UP, Punjab, MP</td><td class="p-4 text-slate-600 dark:text-slate-300">2,585</td><td class="p-4 text-slate-600 dark:text-slate-300">2,610</td><td class="p-4 text-emerald-600 font-bold">▲ +1.2%</td></tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Maize (Makka)</td><td class="p-4 text-slate-600 dark:text-slate-400">Karnataka, AP</td><td class="p-4 text-slate-600 dark:text-slate-300">2,410</td><td class="p-4 text-slate-600 dark:text-slate-300">2,650</td><td class="p-4 text-slate-400 font-bold">- 0.0%</td></tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Bajra (Pearl Millet)</td><td class="p-4 text-slate-600 dark:text-slate-400">Rajasthan, Haryana</td><td class="p-4 text-slate-600 dark:text-slate-300">2,900</td><td class="p-4 text-slate-600 dark:text-slate-300">3,320</td><td class="p-4 text-red-500 font-bold">▼ -0.3%</td></tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Jowar (Sorghum)</td><td class="p-4 text-slate-600 dark:text-slate-400">Maharashtra, Karnataka</td><td class="p-4 text-slate-600 dark:text-slate-300">3,371</td><td class="p-4 text-slate-600 dark:text-slate-300">3,650</td><td class="p-4 text-emerald-600 font-bold">▲ +0.4%</td></tr>
-              
-              <!-- Pulses -->
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Gram (Chana)</td><td class="p-4 text-slate-600 dark:text-slate-400">MP, Maharashtra</td><td class="p-4 text-slate-600 dark:text-slate-300">5,875</td><td class="p-4 text-slate-600 dark:text-slate-300">6,150</td><td class="p-4 text-emerald-600 font-bold">▲ +2.1%</td></tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Tur (Pigeon Pea)</td><td class="p-4 text-slate-600 dark:text-slate-400">Maharashtra, Karnataka</td><td class="p-4 text-slate-600 dark:text-slate-300">8,450</td><td class="p-4 text-slate-600 dark:text-slate-300">8,800</td><td class="p-4 text-emerald-600 font-bold">▲ +1.5%</td></tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Moong (Green Gram)</td><td class="p-4 text-slate-600 dark:text-slate-400">Rajasthan, MP</td><td class="p-4 text-slate-600 dark:text-slate-300">8,682</td><td class="p-4 text-slate-600 dark:text-slate-300">9,100</td><td class="p-4 text-emerald-600 font-bold">▲ +0.9%</td></tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Urad (Black Gram)</td><td class="p-4 text-slate-600 dark:text-slate-400">AP, Madhya Pradesh</td><td class="p-4 text-slate-600 dark:text-slate-300">7,400</td><td class="p-4 text-slate-600 dark:text-slate-300">7,850</td><td class="p-4 text-red-500 font-bold">▼ -0.5%</td></tr>
-
-              <!-- Oilseeds & Cash Crops -->
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Soybean (Yellow)</td><td class="p-4 text-slate-600 dark:text-slate-400">MP, Maharashtra</td><td class="p-4 text-slate-600 dark:text-slate-300">4,892</td><td class="p-4 text-slate-600 dark:text-slate-300">5,150</td><td class="p-4 text-emerald-600 font-bold">▲ +1.1%</td></tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Groundnut</td><td class="p-4 text-slate-600 dark:text-slate-400">Gujarat, AP</td><td class="p-4 text-slate-600 dark:text-slate-300">7,517</td><td class="p-4 text-slate-600 dark:text-slate-300">11,100</td><td class="p-4 text-red-500 font-bold">▼ -1.0%</td></tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Mustard Seed (Sarson)</td><td class="p-4 text-slate-600 dark:text-slate-400">Rajasthan, MP</td><td class="p-4 text-slate-600 dark:text-slate-300">6,200</td><td class="p-4 text-slate-600 dark:text-slate-300">6,613</td><td class="p-4 text-slate-400 font-bold">- 0.0%</td></tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Cotton (Medium Staple)</td><td class="p-4 text-slate-600 dark:text-slate-400">Gujarat, Punjab</td><td class="p-4 text-slate-600 dark:text-slate-300">8,267</td><td class="p-4 text-slate-600 dark:text-slate-300">8,600</td><td class="p-4 text-emerald-600 font-bold">▲ +0.5%</td></tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Sugarcane</td><td class="p-4 text-slate-600 dark:text-slate-400">UP, Maharashtra</td><td class="p-4 text-slate-600 dark:text-slate-300">3,400</td><td class="p-4 text-slate-600 dark:text-slate-300">3,650</td><td class="p-4 text-emerald-600 font-bold">▲ +2.0%</td></tr>
-
-              <!-- Vegetables & Fruits -->
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Potato</td><td class="p-4 text-slate-600 dark:text-slate-400">UP, West Bengal</td><td class="p-4 text-slate-600 dark:text-slate-300">2,200</td><td class="p-4 text-slate-600 dark:text-slate-300">2,750</td><td class="p-4 text-emerald-600 font-bold">▲ +3.2%</td></tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Onion</td><td class="p-4 text-slate-600 dark:text-slate-400">Maharashtra (Lasalgaon)</td><td class="p-4 text-slate-600 dark:text-slate-300">2,400</td><td class="p-4 text-slate-600 dark:text-slate-300">3,850</td><td class="p-4 text-emerald-600 font-bold">▲ +4.5%</td></tr>
               <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition"><td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Tomato</td><td class="p-4 text-slate-600 dark:text-slate-400">Karnataka, AP</td><td class="p-4 text-slate-600 dark:text-slate-300">1,800</td><td class="p-4 text-slate-600 dark:text-slate-300">3,200</td><td class="p-4 text-red-500 font-bold">▼ -2.4%</td></tr>
@@ -563,7 +454,7 @@
 
   </main>
 
-  <!-- Navigation & Interaction Scripts -->
+  <!-- Navigation & Interaction Scripts (Globally Bound to Window) -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       // 1. Single Page Navigation Logic
@@ -590,93 +481,70 @@
       });
 
       // 2. Mobile Menu & Theme Toggle
-      document.getElementById('mobileMenuBtn').addEventListener('click', () => {
-        mobileDropdown.classList.toggle('hidden');
-      });
+      const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+      if (mobileMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+          mobileDropdown.classList.toggle('hidden');
+        });
+      }
 
       const themeToggle = document.getElementById('themeToggle');
       const htmlElement = document.documentElement;
       const themeIcon = document.getElementById('themeIcon');
 
-      themeToggle.addEventListener('click', () => {
-        htmlElement.classList.toggle('dark');
-        themeIcon.textContent = htmlElement.classList.contains('dark') ? '☀️' : '🌙';
-      });
-
-      // 3. Crop Category Filtering
-      const catBtns = document.querySelectorAll('.crop-cat-btn');
-      const cropCards = document.querySelectorAll('.crop-card');
-
-      catBtns.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-          catBtns.forEach(b => {
-            b.classList.remove('bg-brand-600', 'text-white', 'shadow');
-            b.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
-          });
-          
-          e.target.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-600', 'dark:text-slate-300');
-          e.target.classList.add('bg-brand-600', 'text-white', 'shadow');
-
-          const category = e.target.getAttribute('data-cat');
-          cropCards.forEach(card => {
-            if (category === 'all' || card.getAttribute('data-category') === category) {
-              card.style.display = 'block';
-            } else {
-              card.style.display = 'none';
-            }
-          });
+      if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+          htmlElement.classList.toggle('dark');
+          themeIcon.textContent = htmlElement.classList.contains('dark') ? '☀️' : '🌙';
         });
-      });
-      let activeCategory = 'all';
-
-    // 1. Filter by Category Pills
-    function filterCategory(category, evt) {
-      activeCategory = category;
-
-      // Reset all category button colors
-      const buttons = document.querySelectorAll('.category-btn');
-      buttons.forEach(btn => {
-        btn.classList.remove('bg-emerald-600', 'text-white');
-        btn.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
-      });
-
-      // Highlight the active button
-      const clickedBtn = evt ? evt.currentTarget : event.target;
-      if (clickedBtn && clickedBtn.classList) {
-        clickedBtn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
-        clickedBtn.classList.add('bg-emerald-600', 'text-white');
       }
 
-      applyFilters();
-    }
+      // 3. Crop Filtering Logic (Attached to window scope)
+      window.activeCategory = 'all';
 
-    // 2. Filter by Search Bar Input
-    function filterCropDirectory() {
-      applyFilters();
-    }
+      window.filterCategory = function(category, evt) {
+        window.activeCategory = category;
 
-    // 3. Combined Filter Logic (Handles Category selection + Search query simultaneously)
-    function applyFilters() {
-      const searchInput = document.getElementById('cropSearchInput');
-      const searchQuery = searchInput ? searchInput.value.toLowerCase().trim() : '';
-      const cards = document.querySelectorAll('.crop-card');
+        const buttons = document.querySelectorAll('.category-btn');
+        buttons.forEach(btn => {
+          btn.classList.remove('bg-emerald-600', 'text-white');
+          btn.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        });
 
-      cards.forEach(card => {
-        const cardCategory = card.getAttribute('data-category');
-        const cardName = card.getAttribute('data-name') || '';
-
-        const matchesCategory = (activeCategory === 'all' || cardCategory === activeCategory);
-        const matchesSearch = cardName.includes(searchQuery);
-
-        if (matchesCategory && matchesSearch) {
-          card.classList.remove('hidden'); // Show card in grid
-        } else {
-          card.classList.add('hidden');    // Hide card cleanly
+        const clickedBtn = evt ? evt.currentTarget : (window.event ? window.event.target : null);
+        if (clickedBtn && clickedBtn.classList) {
+          clickedBtn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+          clickedBtn.classList.add('bg-emerald-600', 'text-white');
         }
-      });
-    }
+
+        window.applyFilters();
+      };
+
+      window.filterCropDirectory = function() {
+        window.applyFilters();
+      };
+
+      window.applyFilters = function() {
+        const searchInput = document.getElementById('cropSearchInput');
+        const searchQuery = searchInput ? searchInput.value.toLowerCase().trim() : '';
+        const cards = document.querySelectorAll('.crop-card');
+
+        cards.forEach(card => {
+          const cardCategory = card.getAttribute('data-category');
+          const cardName = card.getAttribute('data-name') || '';
+
+          const matchesCategory = (window.activeCategory === 'all' || cardCategory === window.activeCategory);
+          const matchesSearch = cardName.includes(searchQuery);
+
+          if (matchesCategory && matchesSearch) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      };
+
       // 4. Live Camera & Backend Connection Logic
-      // FIXED BUG: Ensured URL is only declared once and correctly points to the Codespace
       const backendUrl = 'https://sturdy-space-fiesta-jr5g679569gjfqpqj-8000.app.github.dev/analyze-leaf';
       const video = document.getElementById('cameraFeed');
       const canvas = document.getElementById('captureCanvas');
@@ -691,138 +559,129 @@
       let currentStream = null;
       let capturedBlob = null;
 
-      startCameraBtn.addEventListener('click', async () => {
-        try {
-          currentStream = await navigator.mediaDevices.getUserMedia({ 
-            video: { facingMode: 'environment' } 
-          });
+      if (startCameraBtn) {
+        startCameraBtn.addEventListener('click', async () => {
+          try {
+            currentStream = await navigator.mediaDevices.getUserMedia({ video: { facingMode: 'environment' } });
+            video.srcObject = currentStream;
+            video.classList.remove('hidden');
+            cameraPlaceholder.classList.add('hidden');
+            photoPreview.classList.add('hidden');
+            
+            startCameraBtn.classList.add('hidden');
+            takePhotoBtn.classList.remove('hidden');
+            analyzeCameraBtn.classList.add('hidden');
+            retakeBtn.classList.add('hidden');
+          } catch (err) {
+            console.error("Camera error:", err);
+            alert("Could not access the camera. Please ensure you have granted camera permissions.");
+          }
+        });
+
+        takePhotoBtn.addEventListener('click', () => {
+          canvas.width = video.videoWidth;
+          canvas.height = video.videoHeight;
+          const context = canvas.getContext('2d');
+          context.drawImage(video, 0, 0, canvas.width, canvas.height);
           
-          video.srcObject = currentStream;
-          video.classList.remove('hidden');
-          cameraPlaceholder.classList.add('hidden');
+          photoPreview.src = canvas.toDataURL('image/jpeg');
+          video.classList.add('hidden');
+          photoPreview.classList.remove('hidden');
+          
+          canvas.toBlob((blob) => { capturedBlob = blob; }, 'image/jpeg', 0.9);
+
+          takePhotoBtn.classList.add('hidden');
+          analyzeCameraBtn.classList.remove('hidden');
+          retakeBtn.classList.remove('hidden');
+        });
+
+        retakeBtn.addEventListener('click', () => {
           photoPreview.classList.add('hidden');
+          video.classList.remove('hidden');
           
-          startCameraBtn.classList.add('hidden');
-          takePhotoBtn.classList.remove('hidden');
           analyzeCameraBtn.classList.add('hidden');
           retakeBtn.classList.add('hidden');
-        } catch (err) {
-          console.error("Camera error:", err);
-          alert("Could not access the camera. Please ensure you have granted camera permissions.");
-        }
-      });
+          takePhotoBtn.classList.remove('hidden');
+          capturedBlob = null;
+        });
 
-      takePhotoBtn.addEventListener('click', () => {
-        canvas.width = video.videoWidth;
-        canvas.height = video.videoHeight;
-        const context = canvas.getContext('2d');
-        context.drawImage(video, 0, 0, canvas.width, canvas.height);
-        
-        photoPreview.src = canvas.toDataURL('image/jpeg');
-        video.classList.add('hidden');
-        photoPreview.classList.remove('hidden');
-        
-        canvas.toBlob((blob) => { capturedBlob = blob; }, 'image/jpeg', 0.9);
+        analyzeCameraBtn.addEventListener('click', async () => {
+          if (!capturedBlob) return;
 
-        takePhotoBtn.classList.add('hidden');
-        analyzeCameraBtn.classList.remove('hidden');
-        retakeBtn.classList.remove('hidden');
-      });
+          const formData = new FormData();
+          formData.append('file', capturedBlob, 'camera_capture.jpg');
 
-      retakeBtn.addEventListener('click', () => {
-        photoPreview.classList.add('hidden');
-        video.classList.remove('hidden');
-        
-        analyzeCameraBtn.classList.add('hidden');
-        retakeBtn.classList.add('hidden');
-        takePhotoBtn.classList.remove('hidden');
-        capturedBlob = null;
-      });
+          const originalText = analyzeCameraBtn.textContent;
+          analyzeCameraBtn.textContent = "Analyzing Image...";
+          analyzeCameraBtn.disabled = true;
 
-      analyzeCameraBtn.addEventListener('click', async () => {
-        if (!capturedBlob) return;
+          try {
+            const response = await fetch(backendUrl, { method: 'POST', body: formData });
+            if (!response.ok) throw new Error("Server error");
+            const result = await response.json();
+            alert(`Analysis Complete!\n\nDiagnosis: ${result.diagnosis}\nConfidence: ${result.confidence}`);
+          } catch (error) {
+            console.error('Upload Error:', error);
+            alert('Upload failed. Check if Codespace is running and port is Public.');
+          } finally {
+            analyzeCameraBtn.textContent = originalText;
+            analyzeCameraBtn.disabled = false;
+          }
+        });
+      }
 
-        const formData = new FormData();
-        formData.append('file', capturedBlob, 'camera_capture.jpg');
+      // 5. Market Table Search Filter
+      window.filterMarketTable = function() {
+        const input = document.getElementById('marketSearchInput');
+        if (!input) return;
+        const filter = input.value.toLowerCase();
+        const table = document.getElementById('marketTable');
+        const trs = table.getElementsByTagName('tr');
 
-        const originalText = analyzeCameraBtn.textContent;
-        analyzeCameraBtn.textContent = "Analyzing Image...";
-        analyzeCameraBtn.disabled = true;
-
-        try {
-          // Uses the backendUrl correctly fixed at the top of this block
-          const response = await fetch(backendUrl, {
-            method: 'POST',
-            body: formData
-          });
-
-          if (!response.ok) throw new Error("Server error");
-          const result = await response.json();
-          
-          alert(`Analysis Complete!\n\nDiagnosis: ${result.diagnosis}\nConfidence: ${result.confidence}`);
-          
-        } catch (error) {
-          console.error('Upload Error:', error);
-          alert('Upload failed. Check if Codespace is running and port is Public.');
-        } finally {
-          analyzeCameraBtn.textContent = originalText;
-          analyzeCameraBtn.disabled = false;
-        }
-      });
-     // Filter Market Table based on user search input
-    function filterMarketTable() {
-      const input = document.getElementById('marketSearchInput');
-      const filter = input.value.toLowerCase();
-      const table = document.getElementById('marketTable');
-      const trs = table.getElementsByTagName('tr');
-
-      for (let i = 1; i < trs.length; i++) {
-        let tdCommodity = trs[i].getElementsByTagName('td')[0];
-        let tdState = trs[i].getElementsByTagName('td')[1];
-        if (tdCommodity || tdState) {
-          let textValueCommodity = tdCommodity ? tdCommodity.textContent || tdCommodity.innerText : '';
-          let textValueState = tdState ? tdState.textContent || tdState.innerText : '';
-          
-          if (textValueCommodity.toLowerCase().indexOf(filter) > -1 || textValueState.toLowerCase().indexOf(filter) > -1) {
-            trs[i].style.display = "";
-          } else {
-            trs[i].style.display = "none";
+        for (let i = 1; i < trs.length; i++) {
+          let tdCommodity = trs[i].getElementsByTagName('td')[0];
+          let tdState = trs[i].getElementsByTagName('td')[1];
+          if (tdCommodity || tdState) {
+            let textValueCommodity = tdCommodity ? tdCommodity.textContent || tdCommodity.innerText : '';
+            let textValueState = tdState ? tdState.textContent || tdState.innerText : '';
+            
+            if (textValueCommodity.toLowerCase().indexOf(filter) > -1 || textValueState.toLowerCase().indexOf(filter) > -1) {
+              trs[i].style.display = "";
+            } else {
+              trs[i].style.display = "none";
+            }
           }
         }
-      }
-    }
-      
-      // 5. OPEN-METEO WEATHER API CONNECTION (WITH CITY SEARCH)
-      
-      // Function to fetch weather by lat/lon
-   async function getWeatherData(lat, lon, locationName = "Current Location") {
-    try {
-      const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m&timezone=auto`;
-      const response = await fetch(apiUrl);
-      
-      if (!response.ok) throw new Error(`Weather server is down (Status ${response.status})`);
-      
-      const data = await response.json();
-      if (!data || !data.current) throw new Error("Weather data missing from response");
-      
-      const current = data.current;
+      };
 
-      document.getElementById('weatherTemp').textContent = `${current.temperature_2m}°C`;
-      document.getElementById('weatherDetails').textContent = `Wind: ${current.wind_speed_10m} km/h • Humidity: ${current.relative_humidity_2m}%`;
-      document.getElementById('weatherCity').textContent = locationName;
-      
-      const icon = current.weather_code > 50 ? '🌧️' : (current.is_day ? '☀️' : '🌙');
-      document.getElementById('weatherIcon').textContent = icon;
+      // 6. Open-Meteo Weather API Connection
+      async function getWeatherData(lat, lon, locationName = "Current Location") {
+        try {
+          const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m&timezone=auto`;
+          const response = await fetch(apiUrl);
+          
+          if (!response.ok) throw new Error(`Weather server is down (Status ${response.status})`);
+          
+          const data = await response.json();
+          if (!data || !data.current) throw new Error("Weather data missing from response");
+          
+          const current = data.current;
 
-    } catch (error) {
-      console.error("API Connection Error:", error);
-      document.getElementById('weatherCity').textContent = "Weather API Offline";
-      document.getElementById('weatherTemp').textContent = "--°C";
-      document.getElementById('weatherDetails').textContent = "Please try again later";
-    }
-  } 
+          document.getElementById('weatherTemp').textContent = `${current.temperature_2m}°C`;
+          document.getElementById('weatherDetails').textContent = `Wind: ${current.wind_speed_10m} km/h • Humidity: ${current.relative_humidity_2m}%`;
+          document.getElementById('weatherCity').textContent = locationName;
+          
+          const icon = current.weather_code > 50 ? '🌧️' : (current.is_day ? '☀️' : '🌙');
+          document.getElementById('weatherIcon').textContent = icon;
 
-      // Function to get lat/lon from city name using Geocoding API
+        } catch (error) {
+          console.error("API Connection Error:", error);
+          document.getElementById('weatherCity').textContent = "Weather API Offline";
+          document.getElementById('weatherTemp').textContent = "--°C";
+          document.getElementById('weatherDetails').textContent = "Please try again later";
+        }
+      } 
+
       async function searchCityWeather(cityName) {
         document.getElementById('weatherCity').textContent = "Searching...";
         try {
@@ -842,21 +701,23 @@
         }
       }
 
-      // Hook up the Search Button
-      document.getElementById('citySearchBtn').addEventListener('click', () => {
-        const cityInput = document.getElementById('citySearchInput').value.trim();
-        if (cityInput) searchCityWeather(cityInput);
-      });
+      const citySearchBtn = document.getElementById('citySearchBtn');
+      const citySearchInput = document.getElementById('citySearchInput');
 
-      // Hook up Enter key on Search Input
-      document.getElementById('citySearchInput').addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
-          const cityInput = e.target.value.trim();
+      if (citySearchBtn && citySearchInput) {
+        citySearchBtn.addEventListener('click', () => {
+          const cityInput = citySearchInput.value.trim();
           if (cityInput) searchCityWeather(cityInput);
-        }
-      });
+        });
 
-      // Fetch user's default location on startup
+        citySearchInput.addEventListener('keypress', (e) => {
+          if (e.key === 'Enter') {
+            const cityInput = e.target.value.trim();
+            if (cityInput) searchCityWeather(cityInput);
+          }
+        });
+      }
+
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
