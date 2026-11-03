@@ -396,7 +396,8 @@
               <div id="weatherTemp" class="text-6xl font-extrabold mt-4">--°C</div>
               <p id="weatherDetails" class="text-lg font-medium mt-2">Wind: -- km/h • Humidity: --%</p>
             </div>
-            <div id="weatherIcon" class="text-8xl">⛅</div>
+            <!-- Replace your old weatherIcon div with this one: -->
+            <div id="weatherIcon" class="flex justify-center items-center">⛅</div>
           </div>
         </div>
       </div>
@@ -655,80 +656,75 @@
       };
 
       // 6. Open-Meteo Weather API Connection
-      async function getWeatherData(lat, lon, locationName = "Current Location") {
+     // 6. WeatherAPI Connection
+      const WEATHER_API_KEY = "0a7e9f5366ba4c4298b104922260311";
+
+      async function getWeatherData(query) {
+        document.getElementById('weatherCity').textContent = "Fetching data...";
+        
         try {
-          const apiUrl = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current=temperature_2m,relative_humidity_2m,is_day,weather_code,wind_speed_10m&timezone=auto`;
-          const response = await fetch(apiUrl);
+          // WeatherAPI endpoint (handles both City Names and Lat/Lon automatically)
+          const apiUrl = `https://api.weatherapi.com/v1/current.json?key=${WEATHER_API_KEY}&q=${encodeURIComponent(query)}&aqi=no`;
           
-          if (!response.ok) throw new Error(`Weather server is down (Status ${response.status})`);
+          const response = await fetch(apiUrl, { cache: 'no-store' });
+          
+          if (!response.ok) throw new Error(`Weather server error (Status ${response.status})`);
           
           const data = await response.json();
-          if (!data || !data.current) throw new Error("Weather data missing from response");
-          
-          const current = data.current;
 
-          document.getElementById('weatherTemp').textContent = `${current.temperature_2m}°C`;
-          document.getElementById('weatherDetails').textContent = `Wind: ${current.wind_speed_10m} km/h • Humidity: ${current.relative_humidity_2m}%`;
-          document.getElementById('weatherCity').textContent = locationName;
+          // Update UI with accurate data
+          document.getElementById('weatherTemp').textContent = `${data.current.temp_c}°C`;
+          document.getElementById('weatherDetails').textContent = `Wind: ${data.current.wind_kph} km/h • Humidity: ${data.current.humidity}%`;
           
-          const icon = current.weather_code > 50 ? '🌧️' : (current.is_day ? '☀️' : '🌙');
-          document.getElementById('weatherIcon').textContent = icon;
+          // Format "City, State" or "City, Country"
+          const region = data.location.region ? `, ${data.location.region}` : '';
+          document.getElementById('weatherCity').textContent = `${data.location.name}${region}`;
+          
+          // Load WeatherAPI's native condition icon
+          const iconUrl = `https:${data.current.condition.icon}`;
+          document.getElementById('weatherIcon').innerHTML = `<img src="${iconUrl}" alt="${data.current.condition.text}" class="w-32 h-32 drop-shadow-md">`;
 
         } catch (error) {
-          console.error("API Connection Error:", error);
-          document.getElementById('weatherCity').textContent = "Weather API Offline";
+          console.error("WeatherAPI Error:", error);
+          document.getElementById('weatherCity').textContent = "City Not Found";
           document.getElementById('weatherTemp').textContent = "--°C";
-          document.getElementById('weatherDetails').textContent = "Please try again later";
+          document.getElementById('weatherDetails').textContent = "Check spelling or try again later";
+          document.getElementById('weatherIcon').innerHTML = `<span class="text-6xl">☁️</span>`;
         }
       } 
 
-      async function searchCityWeather(cityName) {
-        document.getElementById('weatherCity').textContent = "Searching...";
-        try {
-          const geoUrl = `https://geocoding-api.open-meteo.com/v1/search?name=${encodeURIComponent(cityName)}&count=1&language=en&format=json`;
-          const response = await fetch(geoUrl);
-          const geoData = await response.json();
-
-          if (geoData.results && geoData.results.length > 0) {
-            const loc = geoData.results[0];
-            getWeatherData(loc.latitude, loc.longitude, `${loc.name}, ${loc.admin1 || loc.country}`);
-          } else {
-            alert("City not found. Please check spelling and try again.");
-            document.getElementById('weatherCity').textContent = "City Not Found";
-          }
-        } catch (error) {
-          console.error("Geocoding Error:", error);
-        }
-      }
-
+      // Hook up the Search Button
       const citySearchBtn = document.getElementById('citySearchBtn');
       const citySearchInput = document.getElementById('citySearchInput');
 
       if (citySearchBtn && citySearchInput) {
         citySearchBtn.addEventListener('click', () => {
           const cityInput = citySearchInput.value.trim();
-          if (cityInput) searchCityWeather(cityInput);
+          if (cityInput) getWeatherData(cityInput);
         });
 
         citySearchInput.addEventListener('keypress', (e) => {
           if (e.key === 'Enter') {
             const cityInput = e.target.value.trim();
-            if (cityInput) searchCityWeather(cityInput);
+            if (cityInput) getWeatherData(cityInput);
           }
         });
       }
 
+      // Fetch user's default location on startup using GPS coordinates
       if ("geolocation" in navigator) {
         navigator.geolocation.getCurrentPosition(
           (position) => {
-            getWeatherData(position.coords.latitude, position.coords.longitude, "Your Location");
+            const latLonQuery = `${position.coords.latitude},${position.coords.longitude}`;
+            getWeatherData(latLonQuery);
           },
           (error) => {
-            getWeatherData(28.6139, 77.2090, "New Delhi (Default)"); 
+            // Fallback to a default city if GPS is blocked
+            getWeatherData("New Delhi"); 
           }
         );
       }
-    });
+     });
   </script>
 </body>
 </html>
