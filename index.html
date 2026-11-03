@@ -627,7 +627,54 @@
           });
         });
       });
+      let activeCategory = 'all';
 
+    // 1. Filter by Category Pills
+    function filterCategory(category, evt) {
+      activeCategory = category;
+
+      // Reset all category button colors
+      const buttons = document.querySelectorAll('.category-btn');
+      buttons.forEach(btn => {
+        btn.classList.remove('bg-emerald-600', 'text-white');
+        btn.classList.add('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+      });
+
+      // Highlight the active button
+      const clickedBtn = evt ? evt.currentTarget : event.target;
+      if (clickedBtn && clickedBtn.classList) {
+        clickedBtn.classList.remove('bg-slate-100', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300');
+        clickedBtn.classList.add('bg-emerald-600', 'text-white');
+      }
+
+      applyFilters();
+    }
+
+    // 2. Filter by Search Bar Input
+    function filterCropDirectory() {
+      applyFilters();
+    }
+
+    // 3. Combined Filter Logic (Handles Category selection + Search query simultaneously)
+    function applyFilters() {
+      const searchInput = document.getElementById('cropSearchInput');
+      const searchQuery = searchInput ? searchInput.value.toLowerCase().trim() : '';
+      const cards = document.querySelectorAll('.crop-card');
+
+      cards.forEach(card => {
+        const cardCategory = card.getAttribute('data-category');
+        const cardName = card.getAttribute('data-name') || '';
+
+        const matchesCategory = (activeCategory === 'all' || cardCategory === activeCategory);
+        const matchesSearch = cardName.includes(searchQuery);
+
+        if (matchesCategory && matchesSearch) {
+          card.classList.remove('hidden'); // Show card in grid
+        } else {
+          card.classList.add('hidden');    // Hide card cleanly
+        }
+      });
+    }
       // 4. Live Camera & Backend Connection Logic
       // FIXED BUG: Ensured URL is only declared once and correctly points to the Codespace
       const backendUrl = 'https://sturdy-space-fiesta-jr5g679569gjfqpqj-8000.app.github.dev/analyze-leaf';
