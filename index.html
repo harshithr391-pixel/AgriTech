@@ -264,105 +264,167 @@
         </div>
       </div>
     </section>
-<!-- PAGE 3: CROP HEALTH & DISEASE LIBRARY -->
+<!-- PAGE 3: CROPS GROWN IN INDIA DIRECTORY -->
     <section id="page-crop" class="page-section">
-      <div class="max-w-5xl mx-auto py-8">
+      <div class="max-w-6xl mx-auto py-8 px-4">
+        
+        <!-- Header -->
         <div class="text-center mb-8">
-          <span class="px-3 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/50 rounded-full">AI DIAGNOSTICS & AGRONOMY</span>
-          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Crop Health & Disease Directory</h1>
-          <p class="text-slate-600 dark:text-slate-300 mt-2">Scan your crop leaves instantly via camera or look up symptoms and treatments manually.</p>
+          <span class="px-3 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-100 dark:bg-emerald-900/50 rounded-full">INDIAN AGRICULTURE DIRECTORY</span>
+          <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-white mt-2">Crops Grown in India</h1>
+          <p class="text-slate-600 dark:text-slate-300 mt-2 max-w-xl mx-auto">Explore growing conditions, season classifications, soil requirements, and cultivation tips for major Indian crops.</p>
         </div>
 
-        <!-- 1. YOUR EXISTING CAMERA SCANNER CARD (Keep your upload buttons & preview here) -->
-        <div class="bg-white dark:bg-slate-800 rounded-3xl p-6 sm:p-8 shadow-sm border border-slate-200 dark:border-slate-700 mb-10 text-center">
-          <h2 class="text-xl font-bold text-slate-900 dark:text-white mb-4">Instant AI Leaf Scanner</h2>
-          <!-- Upload/Camera interface elements you already built go here -->
-          <div class="flex justify-center gap-4">
-            <input type="file" id="leafInput" accept="image/*" class="hidden">
-            <button onclick="document.getElementById('leafInput').click()" class="px-6 py-3 bg-emerald-600 hover:bg-emerald-700 text-white font-bold rounded-xl transition shadow-md">
-              📸 Take Photo / Upload Leaf
-            </button>
+        <!-- Search Bar -->
+        <div class="mb-6 max-w-xl mx-auto">
+          <input type="text" id="cropSearchInput" onkeyup="filterCropDirectory()" placeholder="Search crops (e.g., Rice, Wheat, Cotton, Tomato)..." class="w-full px-4 py-3.5 rounded-2xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 outline-none transition shadow-sm">
+        </div>
+
+        <!-- Category Filter Pills -->
+        <div class="flex flex-wrap justify-center gap-2 mb-10">
+          <button onclick="filterCategory('all')" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-emerald-600 text-white shadow-sm transition">All Crops</button>
+          <button onclick="filterCategory('cereal')" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Cereals & Grains</button>
+          <button onclick="filterCategory('pulse')" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Pulses</button>
+          <button onclick="filterCategory('oilseed')" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Oilseeds</button>
+          <button onclick="filterCategory('commercial')" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Commercial</button>
+          <button onclick="filterCategory('horticulture')" class="category-btn px-4 py-2 rounded-full font-semibold text-sm bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-slate-200 transition">Horticulture</button>
+        </div>
+
+        <!-- Crops Grid -->
+        <div id="cropsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+          <!-- 1. Rice -->
+          <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="cereal" data-name="rice paddy">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-4xl">🌾</span>
+              <span class="px-2.5 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 rounded-full">KHARIF • CEREAL</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Rice (Paddy)</h3>
+            <p class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mb-3">Hot & Humid (20°C–37°C)</p>
+            <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Clayey loams retaining standing water.</p>
           </div>
-        </div>
 
-        <!-- 2. SEARCH BAR FOR THE REFERENCE LIBRARY -->
-        <div class="mb-6 max-w-md mx-auto">
-          <input type="text" id="cropSearchInput" onkeyup="filterCropTable()" placeholder="🔍 Search library for crops or diseases (e.g., Rice, Blight)..." class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-white focus:ring-2 focus:ring-emerald-500 outline-none transition shadow-sm">
-        </div>
-   <!-- 3. COMPREHENSIVE DISEASE REFERENCE TABLE -->
-        <div class="overflow-x-auto bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
-          <table id="cropTable" class="w-full text-left border-collapse">
-            <thead>
-              <tr class="bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-700">
-                <th class="p-4 font-bold text-slate-900 dark:text-white">Crop Name</th>
-                <th class="p-4 font-bold text-slate-900 dark:text-white">Common Disease / Pest</th>
-                <th class="p-4 font-bold text-slate-900 dark:text-white">Key Symptoms</th>
-                <th class="p-4 font-bold text-slate-900 dark:text-white">Recommended Treatment</th>
-              </tr>
-            </thead>
-            <tbody class="divide-y divide-slate-100 dark:divide-slate-700/60">
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Rice (Paddy)</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Rice Blast</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Spindle-shaped spots on leaves with gray centers</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Tricyclazole 75% WP @ 0.6g/L</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Rice (Paddy)</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Bacterial Leaf Blight</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Water-soaked stripes turning yellow and white</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Copper Hydroxide 77% WP spray</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Wheat</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Yellow Stripe Rust</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Yellow pustules forming linear stripes on leaves</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Propiconazole 25% EC @ 1 ml/L</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Potato</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Late Blight</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Dark brown/black water-soaked lesions on leaves</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Mancozeb 75% WP @ 2.5g/L</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Tomato</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Leaf Curl Virus</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Upward curling of leaves, stunted growth</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Imidacloprid 17.8% SL (vector control)</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Cotton</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Bacterial Blight</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Angular water-soaked spots on leaves and bolls</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Copper Oxychloride + Streptocycline</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Sugarcane</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Red Rot</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Reddening of internal stalk tissues with alcoholic smell</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Carbendazim seed set soak (0.1%)</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Soybean</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Soybean Rust</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Tan to dark brown lesions on lower leaf surfaces</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Hexaconazole 5% EC spray</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Banana</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Panama Wilt</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Yellowing of older leaves, splitting of pseudostem</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Carbendazim soil drenching (0.2%)</td>
-              </tr>
-              <tr class="hover:bg-slate-50 dark:hover:bg-slate-750 transition">
-                <td class="p-4 font-semibold text-slate-700 dark:text-slate-200">Mango</td>
-                <td class="p-4 text-slate-600 dark:text-slate-400">Anthracnose</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Dark sunken spots on leaves, blossoms, and fruits</td>
-                <td class="p-4 text-slate-600 dark:text-slate-300 text-sm">Carbendazim 0.1% or Mancozeb spray</td>
-              </tr>
-            </tbody>
-          </table>
+          <!-- 2. Wheat -->
+          <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="cereal" data-name="wheat gehun">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-4xl">🌾</span>
+              <span class="px-2.5 py-1 text-xs font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 rounded-full">RABI • CEREAL</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Wheat (Gehun)</h3>
+            <p class="text-xs font-medium text-amber-600 dark:text-amber-400 mb-3">Cool & Moist Winter (10°C–15°C)</p>
+            <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Well-drained fertile loams.</p>
+          </div>
+
+          <!-- 3. Maize -->
+          <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="cereal" data-name="maize makka">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-4xl">🌽</span>
+              <span class="px-2.5 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 rounded-full">KHARIF • CEREAL</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Maize (Makka)</h3>
+            <p class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mb-3">Warm Climate (21°C–27°C)</p>
+            <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Old alluvial soil with good drainage.</p>
+          </div>
+
+          <!-- 4. Gram -->
+          <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="pulse" data-name="gram chana pulses">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-4xl">🌱</span>
+              <span class="px-2.5 py-1 text-xs font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 rounded-full">RABI • PULSE</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Gram (Chana)</h3>
+            <p class="text-xs font-medium text-amber-600 dark:text-amber-400 mb-3">Cool Climate (20°C–25°C)</p>
+            <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Light loamy or heavy clay soils.</p>
+          </div>
+
+          <!-- 5. Pigeon Pea -->
+          <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="pulse" data-name="pigeon pea tur arhar pulses">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-4xl">🫘</span>
+              <span class="px-2.5 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 rounded-full">KHARIF • PULSE</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Pigeon Pea (Tur)</h3>
+            <p class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mb-3">Warm & Moist (26°C–30°C)</p>
+            <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Well-drained loamy soils.</p>
+          </div>
+
+          <!-- 6. Groundnut -->
+          <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="oilseed" data-name="groundnut mungfali oilseed">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-4xl">🥜</span>
+              <span class="px-2.5 py-1 text-xs font-bold text-amber-700 dark:text-amber-300 bg-amber-50 dark:bg-amber-950/60 rounded-full">KHARIF • OILSEED</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Groundnut (Mungfali)</h3>
+            <p class="text-xs font-medium text-amber-600 dark:text-amber-400 mb-3">Warm Climate (20°C–30°C)</p>
+            <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Sandy loams and well-drained soils.</p>
+          </div>
+
+          <!-- 7. Soybean -->
+          <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="oilseed" data-name="soybean oilseed">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-4xl">🌿</span>
+              <span class="px-2.5 py-1 text-xs font-bold text-emerald-700 dark:text-emerald-300 bg-emerald-50 dark:bg-emerald-950/60 rounded-full">KHARIF • OILSEED</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Soybean</h3>
+            <p class="text-xs font-medium text-emerald-600 dark:text-emerald-400 mb-3">Warm & Humid (20°C–30°C)</p>
+            <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Fertile alluvial or clay-loam soils.</p>
+          </div>
+
+          <!-- 8. Cotton -->
+          <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="commercial" data-name="cotton kapas commercial">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-4xl">☁️</span>
+              <span class="px-2.5 py-1 text-xs font-bold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 rounded-full">COMMERCIAL</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Cotton (Kapas)</h3>
+            <p class="text-xs font-medium text-purple-600 dark:text-purple-400 mb-3">High Temperature (21°C–30°C)</p>
+            <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Black cotton soil (Regur) of Deccan plateau.</p>
+          </div>
+
+          <!-- 9. Sugarcane -->
+          <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="commercial" data-name="sugarcane ganna commercial">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-4xl">🎋</span>
+              <span class="px-2.5 py-1 text-xs font-bold text-purple-700 dark:text-purple-300 bg-purple-50 dark:bg-purple-950/60 rounded-full">COMMERCIAL</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Sugarcane (Ganna)</h3>
+            <p class="text-xs font-medium text-purple-600 dark:text-purple-400 mb-3">Hot & Humid (20°C–35°C)</p>
+            <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Deep rich loamy soils with high moisture.</p>
+          </div>
+
+          <!-- 10. Potato -->
+          <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="horticulture" data-name="potato aloo horticulture vegetable">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-4xl">🥔</span>
+              <span class="px-2.5 py-1 text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 rounded-full">HORTICULTURE</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Potato (Aloo)</h3>
+            <p class="text-xs font-medium text-blue-600 dark:text-blue-400 mb-3">Cool Weather (15°C–20°C)</p>
+            <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Loose, friable sandy loams rich in humus.</p>
+          </div>
+
+          <!-- 11. Tomato -->
+          <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="horticulture" data-name="tomato tamatar horticulture vegetable">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-4xl">🍅</span>
+              <span class="px-2.5 py-1 text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 rounded-full">HORTICULTURE</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Tomato</h3>
+            <p class="text-xs font-medium text-blue-600 dark:text-blue-400 mb-3">Moderate Climate (18°C–25°C)</p>
+            <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Well-drained sandy loam with organic matter.</p>
+          </div>
+
+          <!-- 12. Banana -->
+          <div class="crop-card bg-white dark:bg-slate-800 rounded-3xl p-6 border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition" data-category="horticulture" data-name="banana kela horticulture fruit">
+            <div class="flex items-start justify-between mb-4">
+              <span class="text-4xl">🍌</span>
+              <span class="px-2.5 py-1 text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/60 rounded-full">HORTICULTURE</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-white mb-1">Banana (Kela)</h3>
+            <p class="text-xs font-medium text-blue-600 dark:text-blue-400 mb-3">Tropical Warm (20°C–35°C)</p>
+            <p class="text-sm text-slate-600 dark:text-slate-300"><strong class="text-slate-900 dark:text-white">Soil:</strong> Rich, deep, well-drained fertile soils.</p>
+          </div>
+
         </div>
       </div>
     </section>
