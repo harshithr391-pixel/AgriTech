@@ -52,6 +52,7 @@ except Exception as e:
 
 # --- 41 MAJOR INDIAN CROPS DATASET (INCLUDING ARECANUT) ---
 DEFAULT_CROPS = [
+    # Cereals & Millets
     {"name": "Rice (Paddy)", "keywords": "rice paddy dhan", "category": "cereal", "season": "KHARIF • CEREAL", "emoji": "🌾", "climate": "Hot & Humid (20°C–37°C)", "soil": "Clayey loams retaining standing water.", "color": "emerald"},
     {"name": "Wheat (Gehun)", "keywords": "wheat gehun", "category": "cereal", "season": "RABI • CEREAL", "emoji": "🌾", "climate": "Cool Winter (10°C–15°C)", "soil": "Well-drained fertile loams.", "color": "amber"},
     {"name": "Maize (Makka)", "keywords": "maize makka corn", "category": "cereal", "season": "KHARIF • CEREAL", "emoji": "🌽", "climate": "Warm Climate (21°C–27°C)", "soil": "Old alluvial soil with good drainage.", "color": "emerald"},
@@ -59,22 +60,26 @@ DEFAULT_CROPS = [
     {"name": "Bajra (Pearl Millet)", "keywords": "bajra pearl millet", "category": "cereal", "season": "KHARIF • MILLET", "emoji": "🌾", "climate": "Hot & Dry (25°C–35°C)", "soil": "Sandy loams and shallow black soils.", "color": "amber"},
     {"name": "Ragi (Finger Millet)", "keywords": "ragi finger millet nachni", "category": "cereal", "season": "KHARIF • MILLET", "emoji": "🌾", "climate": "Moderate (20°C–30°C)", "soil": "Red, black, sandy, and loamy soils.", "color": "emerald"},
     {"name": "Barley (Jau)", "keywords": "barley jau", "category": "cereal", "season": "RABI • CEREAL", "emoji": "🌾", "climate": "Cool & Dry (12°C–18°C)", "soil": "Sandy loam to medium loam soils.", "color": "amber"},
+    # Pulses
     {"name": "Gram (Chana)", "keywords": "gram chana chickpea pulses", "category": "pulse", "season": "RABI • PULSE", "emoji": "🌱", "climate": "Cool Climate (20°C–25°C)", "soil": "Light loamy or heavy clay soils.", "color": "amber"},
     {"name": "Pigeon Pea (Tur / Arhar)", "keywords": "pigeon pea tur arhar toor pulses", "category": "pulse", "season": "KHARIF • PULSE", "emoji": "🫘", "climate": "Warm & Moist (26°C–30°C)", "soil": "Well-drained loamy soils.", "color": "emerald"},
     {"name": "Moong (Green Gram)", "keywords": "moong mung green gram pulses", "category": "pulse", "season": "KHARIF / ZAID • PULSE", "emoji": "🫘", "climate": "Warm (25°C–35°C)", "soil": "Well-drained sandy loams.", "color": "emerald"},
     {"name": "Urad (Black Gram)", "keywords": "urad black gram pulses", "category": "pulse", "season": "KHARIF • PULSE", "emoji": "🫘", "climate": "Hot & Humid (25°C–35°C)", "soil": "Heavy clay or loamy soils.", "color": "emerald"},
     {"name": "Masoor (Red Lentil)", "keywords": "masoor lentil dal pulses", "category": "pulse", "season": "RABI • PULSE", "emoji": "🫘", "climate": "Cool Winter (18°C–25°C)", "soil": "Alluvial and well-drained loams.", "color": "amber"},
+    # Oilseeds
     {"name": "Groundnut (Mungfali)", "keywords": "groundnut peanut mungfali oilseed", "category": "oilseed", "season": "KHARIF • OILSEED", "emoji": "🥜", "climate": "Warm Climate (20°C–30°C)", "soil": "Sandy loams and well-drained soils.", "color": "amber"},
     {"name": "Soybean", "keywords": "soybean soya oilseed", "category": "oilseed", "season": "KHARIF • OILSEED", "emoji": "🌿", "climate": "Warm & Humid (20°C–30°C)", "soil": "Fertile alluvial or clay-loam soils.", "color": "emerald"},
     {"name": "Mustard (Sarson)", "keywords": "mustard sarson rai oilseed", "category": "oilseed", "season": "RABI • OILSEED", "emoji": "🌼", "climate": "Cool & Dry (15°C–25°C)", "soil": "Light to heavy loamy soils.", "color": "amber"},
     {"name": "Sunflower (Surajmukhi)", "keywords": "sunflower surajmukhi oilseed", "category": "oilseed", "season": "ALL SEASON • OILSEED", "emoji": "🌻", "climate": "Moderate (20°C–25°C)", "soil": "Deep loamy and black cotton soils.", "color": "amber"},
     {"name": "Sesame (Til)", "keywords": "sesame til gingelly oilseed", "category": "oilseed", "season": "KHARIF • OILSEED", "emoji": "🌱", "climate": "Warm (25°C–30°C)", "soil": "Well-drained light sandy loams.", "color": "emerald"},
     {"name": "Castor (Arandi)", "keywords": "castor arandi oilseed", "category": "oilseed", "season": "KHARIF • OILSEED", "emoji": "🌿", "climate": "Warm & Dry (20°C–30°C)", "soil": "Deep sandy loam and red soils.", "color": "emerald"},
+    # Commercial & Cash Crops
     {"name": "Arecanut (Supari / Betelnut)", "keywords": "arecanut betelnut supari adike commercial plantation", "category": "commercial", "season": "PERENNIAL • PLANTATION", "emoji": "🌴", "climate": "Warm & Humid (14°C–36°C)", "soil": "Well-drained gravelly laterite and red clay loam soils.", "color": "purple"},
     {"name": "Cotton (Kapas)", "keywords": "cotton kapas commercial", "category": "commercial", "season": "KHARIF • COMMERCIAL", "emoji": "☁️", "climate": "High Temp (21°C–30°C)", "soil": "Black cotton soil (Regur) of Deccan.", "color": "purple"},
     {"name": "Sugarcane (Ganna)", "keywords": "sugarcane ganna commercial", "category": "commercial", "season": "ANNUAL • COMMERCIAL", "emoji": "🎋", "climate": "Hot & Humid (20°C–35°C)", "soil": "Deep rich loamy soils with high moisture.", "color": "purple"},
     {"name": "Jute (Pat)", "keywords": "jute pat golden fibre commercial", "category": "commercial", "season": "KHARIF • COMMERCIAL", "emoji": "🌾", "climate": "Hot & Wet (24°C–37°C)", "soil": "New alluvial soil of river deltas.", "color": "purple"},
     {"name": "Natural Rubber", "keywords": "rubber plantation commercial", "category": "commercial", "season": "PERENNIAL • COMMERCIAL", "emoji": "🌳", "climate": "Equatorial Humid (25°C–35°C)", "soil": "Deep well-drained laterite soils.", "color": "purple"},
+    # Spices & Plantation
     {"name": "Tea (Chai)", "keywords": "tea chai plantation spice", "category": "spice", "season": "PERENNIAL • PLANTATION", "emoji": "🍵", "climate": "Cool & Humid (15°C–30°C)", "soil": "Deep acidic hill-slope loams.", "color": "rose"},
     {"name": "Coffee", "keywords": "coffee arabica robusta plantation", "category": "spice", "season": "PERENNIAL • PLANTATION", "emoji": "☕", "climate": "Cool Tropical (15°C–28°C)", "soil": "Rich, well-drained forest loams.", "color": "rose"},
     {"name": "Turmeric (Haldi)", "keywords": "turmeric haldi spice", "category": "spice", "season": "KHARIF • SPICE", "emoji": "🫚", "climate": "Warm & Humid (20°C–30°C)", "soil": "Friable, well-drained loamy soils.", "color": "rose"},
@@ -83,6 +88,7 @@ DEFAULT_CROPS = [
     {"name": "Cardamom (Elaichi)", "keywords": "cardamom elaichi spice", "category": "spice", "season": "PERENNIAL • SPICE", "emoji": "🌿", "climate": "Cool & Wet (10°C–35°C)", "soil": "Acidic, humus-rich forest loams.", "color": "rose"},
     {"name": "Red Chilli (Mirchi)", "keywords": "chilli mirchi pepper spice", "category": "spice", "season": "KHARIF / RABI • SPICE", "emoji": "🌶️", "climate": "Warm & Humid (20°C–30°C)", "soil": "Well-drained black or loamy soils.", "color": "rose"},
     {"name": "Cumin (Jeera)", "keywords": "cumin jeera spice", "category": "spice", "season": "RABI • SPICE", "emoji": "🌱", "climate": "Cool & Dry (15°C–25°C)", "soil": "Well-drained sandy loam soils.", "color": "rose"},
+    # Horticulture
     {"name": "Potato (Aloo)", "keywords": "potato aloo vegetable horticulture", "category": "horticulture", "season": "RABI • HORTICULTURE", "emoji": "🥔", "climate": "Cool Weather (15°C–20°C)", "soil": "Loose, friable sandy loams rich in humus.", "color": "blue"},
     {"name": "Tomato (Tamatar)", "keywords": "tomato tamatar vegetable horticulture", "category": "horticulture", "season": "ALL SEASON • HORTICULTURE", "emoji": "🍅", "climate": "Moderate (18°C–25°C)", "soil": "Well-drained sandy loam with organic matter.", "color": "blue"},
     {"name": "Onion (Pyaaz)", "keywords": "onion pyaaz kanda vegetable horticulture", "category": "horticulture", "season": "KHARIF / RABI • HORTICULTURE", "emoji": "🧅", "climate": "Mild Climate (13°C–25°C)", "soil": "Deep friable alluvial and loamy soils.", "color": "blue"},
@@ -151,7 +157,6 @@ class BuyerLead(BaseModel):
     contact: str
 
 # --- AI MODEL SETUP ---
-MODEL_PATH = "leaf_disease_model.h5"
 model = None
 CLASS_NAMES = [
     "Healthy Leaf",
@@ -180,6 +185,7 @@ def preprocess_image(image_bytes: bytes):
 def root():
     return {"status": "AgriTech API Running"}
 
+# 1. LEAF DISEASE DETECTION
 @app.post("/analyze-leaf")
 async def analyze_leaf(file: UploadFile = File(...)):
     if not file.content_type.startswith("image/"):
@@ -203,6 +209,7 @@ async def analyze_leaf(file: UploadFile = File(...)):
 
     return {"diagnosis": diagnosis, "confidence": confidence}
 
+# 2. RECENT LEAF SCANS
 @app.get("/scan-history")
 def get_scan_history(limit: int = 20):
     if scans_collection is None:
@@ -210,6 +217,7 @@ def get_scan_history(limit: int = 20):
     scans = list(scans_collection.find({}, {"_id": 0}).sort("timestamp", -1).limit(limit))
     return {"count": len(scans), "data": scans}
 
+# 3. INDIAN CROPS DIRECTORY
 @app.get("/crops")
 def get_crops(category: Optional[str] = None, search: Optional[str] = None):
     if crops_collection is None:
@@ -227,6 +235,7 @@ def get_crops(category: Optional[str] = None, search: Optional[str] = None):
     crops = list(crops_collection.find(query, {"_id": 0}))
     return {"count": len(crops), "data": crops}
 
+# 4. LIVE DAILY MARKET PRICES (UP TO 500 RECORDS + ARECANUT GUARANTEED)
 @app.get("/market-prices")
 def get_live_market_prices(limit: int = 500, state: Optional[str] = None):
     today_str = datetime.now(timezone.utc).strftime("%Y-%m-%d")
@@ -284,6 +293,7 @@ def get_live_market_prices(limit: int = 500, state: Optional[str] = None):
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to fetch live prices: {str(e)}")
 
+# 5. EQUIPMENT RENTAL MARKETPLACE
 @app.get("/equipment")
 def get_equipment():
     if equipment_collection is None:
@@ -300,6 +310,7 @@ def add_equipment(item: EquipmentListing):
     doc.pop("_id", None)
     return {"status": "created", "data": doc}
 
+# 6. SOIL HEALTH CARD & FIELD MAPPING
 @app.get("/soil-cards")
 def get_soil_cards(limit: int = 10):
     if soil_collection is None:
@@ -316,6 +327,7 @@ def save_soil_card(card: SoilCardEntry):
     doc.pop("_id", None)
     return {"status": "saved", "data": doc}
 
+# 7. CONTRACT FARMING & DIRECT BUYER LEADS
 @app.get("/buyer-leads")
 def get_buyer_leads():
     if buyer_leads_collection is None:
