@@ -4,3 +4,7 @@ python-multipart
 Pillow
 numpy
 tensorflow
+requests
+pymongo
+dnspython
+pydantic
