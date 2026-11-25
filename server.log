@@ -5,3 +5,81 @@ INFO:     Started reloader process [9693] using StatReload
 INFO:     Started server process [9706]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
+✅ Connected to MongoDB Atlas successfully.
+INFO:     123.63.87.133:0 - "GET /crops HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /buyer-leads HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /equipment HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /crops HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /equipment HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /buyer-leads HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /equipment HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /crops HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /buyer-leads HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /market-prices?limit=500 HTTP/1.1" 500 Internal Server Error
+INFO:     123.63.87.133:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /crops HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /equipment HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /buyer-leads HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /market-prices?limit=500 HTTP/1.1" 500 Internal Server Error
+INFO:     123.63.87.133:0 - "POST /analyze-leaf HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /crops HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /equipment HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /buyer-leads HTTP/1.1" 200 OK
+INFO:     123.63.87.133:0 - "GET /market-prices?limit=500 HTTP/1.1" 500 Internal Server Error
+INFO:     202.129.209.1:0 - "GET /crops HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /equipment HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /buyer-leads HTTP/1.1" 200 OK
+INFO:     157.50.200.44:0 - "GET /crops HTTP/1.1" 200 OK
+INFO:     157.50.200.44:0 - "GET /buyer-leads HTTP/1.1" 200 OK
+INFO:     157.50.200.44:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     157.50.200.44:0 - "GET /equipment HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /market-prices?limit=500 HTTP/1.1" 500 Internal Server Error
+INFO:     157.50.200.44:0 - "GET /market-prices?limit=500 HTTP/1.1" 500 Internal Server Error
+INFO:     157.50.200.44:0 - "GET /buyer-leads HTTP/1.1" 200 OK
+INFO:     157.50.200.44:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     157.50.200.44:0 - "GET /equipment HTTP/1.1" 200 OK
+INFO:     157.50.200.44:0 - "GET /crops HTTP/1.1" 200 OK
+INFO:     157.50.200.44:0 - "GET /market-prices?limit=500 HTTP/1.1" 500 Internal Server Error
+INFO:     202.129.209.1:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /buyer-leads HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /equipment HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /crops HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /market-prices?limit=500 HTTP/1.1" 500 Internal Server Error
+INFO:     202.129.209.1:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /crops HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /equipment HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /buyer-leads HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "POST /analyze-leaf HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /market-prices?limit=500 HTTP/1.1" 500 Internal Server Error
+INFO:     202.129.209.1:0 - "POST /analyze-leaf HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "POST /analyze-leaf HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "POST /analyze-leaf HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /crops HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /buyer-leads HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /equipment HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /market-prices?limit=500 HTTP/1.1" 500 Internal Server Error
+INFO:     202.129.209.1:0 - "POST /analyze-leaf HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /equipment HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /crops HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /buyer-leads HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /market-prices?limit=500 HTTP/1.1" 500 Internal Server Error
+INFO:     202.129.209.1:0 - "GET /equipment HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /crops HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /buyer-leads HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /market-prices?limit=500 HTTP/1.1" 500 Internal Server Error
+INFO:     202.129.209.1:0 - "POST /analyze-leaf HTTP/1.1" 200 OK
+INFO:     202.129.209.1:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
