@@ -1,36 +1,7 @@
 nohup: ignoring input
 INFO:     Will watch for changes in these directories: ['/workspaces/AgriTech']
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
-INFO:     Started reloader process [3386] using StatReload
-INFO:     Started server process [3400]
+INFO:     Started reloader process [9693] using StatReload
+INFO:     Started server process [9706]
 INFO:     Waiting for application startup.
 INFO:     Application startup complete.
-✅ Connected to MongoDB Atlas successfully.
-INFO:     103.164.196.152:0 - "GET /buyer-leads HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /crops HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /equipment HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /crops HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /equipment HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /buyer-leads HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /crops HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /equipment HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /buyer-leads HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /equipment HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /buyer-leads HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /crops HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /buyer-leads HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /crops HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /equipment HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /crops HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /equipment HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /buyer-leads HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /crops HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /scan-history?limit=5 HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /equipment HTTP/1.1" 200 OK
-INFO:     103.164.196.152:0 - "GET /buyer-leads HTTP/1.1" 200 OK
